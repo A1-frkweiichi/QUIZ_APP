@@ -10,3 +10,6 @@ module.exports = {
     themes: ["light", "dark"],
   },
 };
+
+// 参照元: 公式サイト https://daisyui.com/docs/install/
+//                 https://daisyui.com/docs/themes/
