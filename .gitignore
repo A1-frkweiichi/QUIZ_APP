@@ -36,3 +36,8 @@
 /node_modules
 
 /.DS_Store
+
+# 環境変数をGitHub上に公開しないようにする
+.env
+/vendor
+QUIZ-APP-key.pem
