@@ -10,13 +10,16 @@ AllCops:
     - "config/**/*"
     - "bin/*"
     - "node_modules/**/*"
+    - "Gemfile"
 
   # 新ルールを有効化
   NewCops: enable
+  # rubocop-capybaraの提案を非表示にする
+  SuggestExtensions: false
 
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
-  Max: 80
+  Max: 100
   # 下記ファイルはチェックの対象から外す
   Exclude:
     - "Rakefile"
@@ -79,6 +82,16 @@ Style/SymbolArray:
 # 文字列に値が代入されて変わっていないかチェック（無効）
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# 文字列補間や特殊記号を必要としない場合は、単一引用符で囲まれた文字列を使用することを推奨（無効）
+Style/StringLiterals:
+  Exclude:
+    - "Rakefile"
+    - "app/mailers/application_mailer.rb"
+    - "config.ru"
+    - "test/application_system_test_case.rb"
+    - "test/channels/application_cable/connection_test.rb"
+    - "test/test_helper.rb"
 
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
