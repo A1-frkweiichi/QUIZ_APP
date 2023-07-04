@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.5"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5.3"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -75,3 +75,9 @@ group :test do
 end
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
+
+#環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
+gem 'dotenv-rails'
+
+gem 'list'
+
