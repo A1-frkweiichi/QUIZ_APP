@@ -83,15 +83,9 @@ Style/SymbolArray:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# 文字列補間や特殊記号を必要としない場合は、単一引用符で囲まれた文字列を使用することを推奨（無効）
+# 文字列補間や特殊記号（"）を必要としない場合は、単一引用符で囲まれた文字列を使用することを推奨（無効）
 Style/StringLiterals:
-  Exclude:
-    - "Rakefile"
-    - "app/mailers/application_mailer.rb"
-    - "config.ru"
-    - "test/application_system_test_case.rb"
-    - "test/channels/application_cable/connection_test.rb"
-    - "test/test_helper.rb"
+  EnforcedStyle: double_quotes
 
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
