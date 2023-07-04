@@ -19,13 +19,13 @@ default: &default
   encoding: unicode
   charset: unicode
   collation: unicode_general_ci
-  username: ENV['MASTERUSER']
-  password: ENV['MASTERPASSWORD']
-  host: ENV['ENDPOINT']
+  #username: ENV['MASTERUSER']
+  #password: ENV['MASTERPASSWORD']
+  #host: ENV['ENDPOINT']
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  #pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
