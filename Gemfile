@@ -74,7 +74,10 @@ group :test do
   gem "webdrivers"
 end
 
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
 #環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
 gem 'dotenv-rails'
 
 gem 'list'
+
