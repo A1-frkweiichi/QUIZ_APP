@@ -277,6 +277,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   list
+  pg (~> 1.5.3)
   puma (~> 5.0)
   rails (~> 7.0.5)
   rubocop
