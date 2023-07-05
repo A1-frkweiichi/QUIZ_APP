@@ -14,7 +14,13 @@ module QUIZApp
           g.skip_routes true
           g.assets false
           g.helper false
-          g.test_framework false
+          g.test_framework :rspec,
+            fixtures: false,
+            routing_specs: false,
+            view_specs: false,
+            helper_specs: false,
+            controller_specs: true,
+            request_specs: false
         end
     # Configuration for the application, engines, and railties goes here.
     #
