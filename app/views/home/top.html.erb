@@ -1,13 +1,49 @@
-<div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl dark:bg-gray-800">
-  <div>
-    <input type="checkbox" class="toggle toggle-warning" id="toggle-dark-mode" checked />
-    <label for="toggle-dark-mode">
-      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
-    </label>
+<header class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl dark:bg-gray-800">
+  <div class="flex">
+    <div>
+      <details class="dropdown mb-32">
+        <summary class="m-1 btn">
+          <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+        </summary>
+        <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+          <li><a>ログイン</a></li>
+          <li><a>ゲストログイン</a></li>
+        </ul>
+      </details>
+    </div>
+    <div class="ml-auto">
+      <input type="checkbox" class="toggle toggle-warning" id="toggle-dark-mode" checked />
+      <label for="toggle-dark-mode">
+        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+      </label>
+    </div>
+  </div>
+</header>
+
+<div class="bg-white dark:bg-slate-800">
+  <div class="title my-5">
+    <h1 class="text-5xl font-bold text-center">KnowledgeTreeQuiz</h1>
+    <h2 class="text-2xl font-bold text-center">みんなで育てる知識の木</h2>
+  </div>
+  <div class="concept my-5">
+    <h3 class="text-2xl font-bold text-center">ナレッジツリークイズとは？</h3>
+    <p class="text-center">エンジニア学習における知識を、クイズ形式で投稿＆回答して学べるサービスです</p>
+  </div>
+  <div class="how-to-use my-5">
+    <h3 class="text-2xl font-bold text-center">1.クイズをつくって、学んだことをアウトプットしよう！</h3>
+    <p class="text-center">→授業を聞く5%、読書する10%に対し、「他人に教える」と90%記憶定着率が上がります🌲</p>
+    <h3 class="text-2xl font-bold text-center">2.誰かがつくったクイズの解説ページで、<br>補足や関連知識を教え合うこともできるよ！</h3>
+    <p class="text-center">→いいねがつくとより上に表示されます⭐️</p>
+    <h3 class="text-2xl font-bold text-center">3.みんなで知識を木のように育てましょう！</h3>
+    <p class="text-center">→知識を関連づけて、楽しく学びましょう✨</p>
+  </div>
+  <div class="log-in my-5 text-center">
+    <button class="btn btn-info">ログイン</button>
+    <button class="btn btn-success">ゲストログイン</button>
   </div>
 </div>
 
-<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+<footer class="bg-white dark:bg-slate-800 footer footer-center p-10 bg-base-200 text-base-content rounded">
   <div class="grid grid-flow-col gap-4">
     <a class="link link-hover">開発メンバー</a>
     <a class="link link-hover">利用規約</a>
