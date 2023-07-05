@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -64,6 +65,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # 検査基準・対象なども調整できる https://zenn.dev/tmasuyama1114/books/ab51fea5d5f659/viewer/rubocop
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do
@@ -73,7 +80,12 @@ group :test do
   gem "webdrivers"
 end
 
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
 #環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
 gem 'dotenv-rails'
 
 gem 'list'
+
+# 利用規約とプライバシーポリシーの静的ページ作成　
+gem 'high_voltage'
