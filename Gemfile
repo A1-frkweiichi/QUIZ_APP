@@ -90,3 +90,6 @@ gem 'list'
 
 # 利用規約とプライバシーポリシーの静的ページ作成　
 gem 'high_voltage'
+
+# i18n
+gem 'rails-i18n', '~> 7.0.0'

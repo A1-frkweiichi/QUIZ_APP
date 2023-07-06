@@ -1,0 +1,23 @@
+ja:
+  defaults:
+    login: "ログイン"
+    register: "登録"
+    logout: "ログアウト"
+    message:
+      updated: "更新しました"
+      not_updated: "更新できませんでした"
+      deleted: "削除しました"
+      delete_confirm: "削除しますか？"
+      not_authorized: "権限がありません"
+      require_login: "ログインしてください"
+      created: "作成しました"
+      not_created: "作成できませんでした"
+  users:
+    new:
+      sign_up: "ユーザー登録"
+      to_login_page: "ログインページへ"
+  user_sessions:
+    new:
+      login: "ログイン"
+      to_register_page: "登録ページへ"
+      password_forget: "パスワードをお忘れの方はこちら"
