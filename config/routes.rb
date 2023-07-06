@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#top"
+
+  post '/guest_login', to: 'user_sessions#guest_login'
 end
