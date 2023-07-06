@@ -91,5 +91,9 @@ gem 'list'
 # 利用規約とプライバシーポリシーの静的ページ作成　
 gem 'high_voltage'
 
+# ユーザー機能認証
+gem 'sorcery'
+
 # i18n
 gem 'rails-i18n', '~> 7.0.0'
+
