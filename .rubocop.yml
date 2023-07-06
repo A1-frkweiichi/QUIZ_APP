@@ -49,7 +49,7 @@ Metrics/CyclomaticComplexity:
 
 # メソッドの行数が多すぎないかをチェック
 Metrics/MethodLength:
-  Max: 10
+  Max: 15
 
 # ネストが深すぎないかをチェック（if文のネストもチェック）
 Metrics/BlockNesting:

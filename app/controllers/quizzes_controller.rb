@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: %i[ show edit update destroy ]
+  before_action :set_quiz, only: %i[show edit update destroy]
 
   # GET /quizzes or /quizzes.json
   def index
@@ -25,11 +25,11 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to quiz_url(@quiz), notice: "Quiz was successfully created." }
-        format.json { render :show, status: :created, location: @quiz }
+        format.html { redirect_to quizzes_path, notice: "Quiz was successfully created." }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @quiz.errors, status: :unprocessable_entity }
+        format.turbo_stream
       end
     end
   end
@@ -38,11 +38,9 @@ class QuizzesController < ApplicationController
   def update
     respond_to do |format|
       if @quiz.update(quiz_params)
-        format.html { redirect_to quiz_url(@quiz), notice: "Quiz was successfully updated." }
-        format.json { render :show, status: :ok, location: @quiz }
+        redirect_to quiz_url(@quiz), notice: "Quiz was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @quiz.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
     end
   end
@@ -52,8 +50,7 @@ class QuizzesController < ApplicationController
     @quiz.destroy
 
     respond_to do |format|
-      format.html { redirect_to quizzes_url, notice: "Quiz was successfully destroyed." }
-      format.json { head :no_content }
+      redirect_to quizzes_url, notice: "Quiz was successfully destroyed."
     end
   end
 

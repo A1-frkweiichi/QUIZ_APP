@@ -12,6 +12,7 @@
   <% end %>
 
   <div>
+    <p>↓Categoryは、category_idを入力してください<br>（1:HTML, 2:CSS, 3:JS, 4:Ruby, 5:Rails）</p>
     <%= form.label :category_id, style: "display: block" %>
     <%= form.text_field :category_id %>
   </div>
@@ -32,6 +33,7 @@
   </div>
 
   <div>
+    <p>↓クイズ作成できるが、遷移・フラッシュメッセージ出ないため要修正</p>
     <%= form.submit %>
   </div>
 <% end %>
