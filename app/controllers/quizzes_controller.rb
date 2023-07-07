@@ -13,10 +13,12 @@ class QuizzesController < ApplicationController
   # GET /quizzes/new
   def new
     @quiz = Quiz.new
+    4.times { @quiz.choices.build }
   end
 
   # GET /quizzes/1/edit
   def edit
+    (4 - @quiz.choices.count).times { @quiz.choices.build }
   end
 
   # POST /quizzes or /quizzes.json
@@ -51,6 +53,6 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, :content, :image)
+    params.require(:quiz).permit(:title, :content, :image, choices_attributes: [:id, :content, :image, :is_correct, :_destroy])
   end
 end
