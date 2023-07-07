@@ -97,3 +97,8 @@ gem 'sorcery'
 # i18n
 gem 'rails-i18n', '~> 7.0.0'
 
+# Config を使用すると、環境固有の設定を簡単かつ使いやすい方法で管理できます。公式：https://github.com/rubyconfig/config　参照：https://qiita.com/tarakish/items/8e61106fa2473a9d97e8#6-sorceryrb%E3%81%AE%E8%A8%AD%E5%AE%9A
+gem 'config'
+
+# Googleログインに必要なgem
+gem 'googleauth'
