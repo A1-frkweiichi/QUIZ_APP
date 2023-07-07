@@ -1,7 +1,7 @@
 <%= form_with(model: quiz) do |form| %>
   <% if quiz.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+      <h2><%= pluralize(quiz.errors.count, t('quizzes.form.error')) %> <%= t('quizzes.form.prohibited') %></h2>
 
       <ul>
         <% quiz.errors.each do |error| %>
@@ -12,39 +12,33 @@
   <% end %>
 
   <div>
-    <p>クイズのタイトル</p>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, t('quizzes.form.quiz_title'), style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <p>クイズの本文</p>
-    <%= form.label :content, style: "display: block" %>
+    <%= form.label :content, t('quizzes.form.quiz_content'), style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
-    <p>クイズの画像</p>
-    <%= form.label :image, style: "display: block" %>
+    <%= form.label :image, t('quizzes.form.quiz_image'), style: "display: block" %>
     <%= form.text_field :image %>
   </div>
 
   <%= form.fields_for :choices do |choice_form| %>
     <div>
-      <p>選択肢の本文</p>
-      <%= choice_form.label :content, style: "display: block" %>
+      <%= choice_form.label :content, t('quizzes.form.choice_content'), style: "display: block" %>
       <%= choice_form.text_area :content %>
     </div>
 
     <div>
-      <p>選択肢の画像</p>
-      <%= choice_form.label :image, style: "display: block" %>
+      <%= choice_form.label :image, t('quizzes.form.choice_image'), style: "display: block" %>
       <%= choice_form.text_field :image %>
     </div>
 
     <div>
-      <p>選択肢の正解・不正解</p>
-      <%= choice_form.label :is_correct, style: "display: block" %>
+      <%= choice_form.label :is_correct, t('quizzes.form.is_correct'), style: "display: block" %>
       <%= choice_form.check_box :is_correct %>
     </div>
   <% end %>
