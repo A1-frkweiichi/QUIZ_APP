@@ -1,4 +1,7 @@
 <div class="bg-white dark:bg-slate-800 text-gray-500">
+  <!-- Googleログインのクライアントライブラリの読み込み 下記1行を追加 -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <div class="title my-5">
     <h1 class="text-5xl font-bold text-center">KnowledgeTreeQuiz</h1>
     <h2 class="text-2xl font-bold text-center">みんなで育てる知識の木</h2>
@@ -18,5 +21,21 @@
   <div class="log-in my-5 text-center">
     <button class="btn btn-info">ログイン</button>
     <button class="btn btn-success">ゲストログイン</button>
+
+    <!-- Googleログインボタンの表示 ここから追加 -->
+      <div id="g_id_onload"
+        data-client_id= <%= ENV['GOOGLE_CLIENT_ID'] %>
+        data-login_uri="http://localhost:3000/google_login_api/callback"
+        data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left">
+      </div>
+    <!-- ここまで追加 -->
   </div>
 </div>
