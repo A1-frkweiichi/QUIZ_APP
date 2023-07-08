@@ -41,6 +41,13 @@
       <%= choice_form.label :is_correct, t('quizzes.form.is_correct'), style: "display: block" %>
       <%= choice_form.check_box :is_correct %>
     </div>
+
+    <% if @quiz.persisted? %>
+      <div>
+        <%= choice_form.label :_destroy, t('quizzes.form.remove_choice'), style: "display: block" %>
+        <%= choice_form.check_box :_destroy %>
+      </div>
+    <% end %>
   <% end %>
 
   <div>

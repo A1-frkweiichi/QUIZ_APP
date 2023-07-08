@@ -45,6 +45,7 @@ ja:
       choice_content: "選択肢の本文"
       choice_image: "選択肢の画像"
       is_correct: "正解"
+      remove_choice: "選択肢を削除"
       submit: "送信"
     create:
       success: "クイズが正常に作成されました。"
@@ -59,5 +60,5 @@ ja:
         quiz:
           attributes:
             choices:
-              at_least_two: "は最低でも2つ必要です"
-              at_least_one_correct: "の中には少なくとも、1つは正解の選択肢が必要です"
+              at_least_two: "は最低2つ以上、必要です"
+              at_least_one_correct: "は最低1つ以上、正解が必要です"
