@@ -1,49 +1,44 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: %i[show edit update destroy]
 
-  # GET /quizzes or /quizzes.json
   def index
     @quizzes = Quiz.all
   end
 
-  # GET /quizzes/1 or /quizzes/1.json
   def show
   end
 
-  # GET /quizzes/new
   def new
     @quiz = Quiz.new
     4.times { @quiz.choices.build }
   end
 
-  # GET /quizzes/1/edit
   def edit
     (4 - @quiz.choices.count).times { @quiz.choices.build }
   end
 
-  # POST /quizzes or /quizzes.json
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
-      redirect_to quiz_url(@quiz), notice: "Quiz was successfully created."
+      redirect_to quiz_url(@quiz), notice: t(".success")
     else
+      # 既存の選択肢を保持したまま、残りの選択肢をbuildする
+      build_remaining_choices
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /quizzes/1 or /quizzes/1.json
   def update
     if @quiz.update(quiz_params)
-      redirect_to quiz_url(@quiz), notice: "Quiz was successfully updated."
+      redirect_to quiz_url(@quiz), notice: t(".success")
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /quizzes/1 or /quizzes/1.json
   def destroy
     @quiz.destroy
-    redirect_to quizzes_url, notice: "Quiz was successfully destroyed."
+    redirect_to quizzes_url, notice: t(".success")
   end
 
   private
@@ -53,6 +48,16 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, :content, :image, choices_attributes: [:id, :content, :image, :is_correct, :_destroy])
+    params.require(:quiz).permit(:title, :content, :image, choices_attributes: [:id,
+                                                                                :content,
+                                                                                :image,
+                                                                                :is_correct,
+                                                                                :_destroy])
+  end
+
+  # 既存の選択肢を保持したまま、残りの選択肢をbuildする
+  def build_remaining_choices
+    unbuilt_choices = [4 - @quiz.choices.size, 0].max
+    unbuilt_choices.times { @quiz.choices.build }
   end
 end
