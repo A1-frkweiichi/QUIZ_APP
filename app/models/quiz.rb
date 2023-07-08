@@ -1,6 +1,6 @@
 class Quiz < ApplicationRecord
   has_many :choices, dependent: :destroy
-  # Quizを親、Choiceを子とnestする。# Choiceのcontentが空白なら新しいrecord作らない
+  # Quizを親、Choiceを子とnestする。Choiceのcontentに入力がないなら、空のrecordとして登録しない。
   accepts_nested_attributes_for :choices,
                                 reject_if: proc { |attributes| attributes["content"].blank? },
                                 allow_destroy: true
@@ -13,17 +13,26 @@ class Quiz < ApplicationRecord
 
   private
 
-  # 選択肢が2つ未満なら警告
   def at_least_two_choices
-    return unless choices.size < 2
+    return unless choices.reject(&:marked_for_destruction?).size < 2
 
     errors.add(:choices, :at_least_two)
   end
 
-  # 正解が1つもないなら警告
   def at_least_one_correct_choice
-    return if choices.any?(&:is_correct)
+    return if choices.reject(&:marked_for_destruction?).any?(&:is_correct)
 
     errors.add(:choices, :at_least_one_correct)
   end
 end
+
+# at_least_two_choices
+# `reject`メソッドは配列から特定の条件に一致する要素を除外します。
+# `marked_for_destruction?`メソッドは、その選択肢が削除される予定かどうかを確認します。
+# したがって、`reject(&:marked_for_destruction?)`は削除予定の選択肢を除外した新しい配列を作ります。
+# その結果の配列のサイズ（つまり削除されない選択肢の数）が2未満ならエラーを追加します。
+
+# at_least_one_correct_choice
+# 同様に、`reject(&:marked_for_destruction?)`は削除予定の選択肢を除外した新しい配列を作ります。
+# `any?(&:is_correct)`は、その配列の中に正解の選択肢（`is_correct`がtrueの選択肢）が1つでもあるかを確認します。
+# もし正解の選択肢が1つもなければ（つまり`any?(&:is_correct)`がfalseなら）エラーを追加します。

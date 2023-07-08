@@ -10,11 +10,11 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
-    4.times { @quiz.choices.build }
+    build_choices
   end
 
   def edit
-    (4 - @quiz.choices.count).times { @quiz.choices.build }
+    build_choices
   end
 
   def create
@@ -22,8 +22,7 @@ class QuizzesController < ApplicationController
     if @quiz.save
       redirect_to quiz_url(@quiz), notice: t(".success")
     else
-      # 既存の選択肢を保持したまま、残りの選択肢をbuildする
-      build_remaining_choices
+      build_choices
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,6 +31,7 @@ class QuizzesController < ApplicationController
     if @quiz.update(quiz_params)
       redirect_to quiz_url(@quiz), notice: t(".success")
     else
+      build_choices
       render :edit, status: :unprocessable_entity
     end
   end
@@ -55,8 +55,8 @@ class QuizzesController < ApplicationController
                                                                                 :_destroy])
   end
 
-  # 既存の選択肢を保持したまま、残りの選択肢をbuildする
-  def build_remaining_choices
+  # 新規作成、編集、エラー後の再表示でも、選択肢を4つにする
+  def build_choices
     unbuilt_choices = [4 - @quiz.choices.size, 0].max
     unbuilt_choices.times { @quiz.choices.build }
   end
