@@ -1,3 +1,4 @@
+# 参考記事 https://zenn.dev/yoiyoicho/articles/c44a80e4bb4515
 class GoogleLoginApiController < ApplicationController
   require "googleauth/id_tokens/verifier"
 
