@@ -62,3 +62,10 @@ ja:
             choices:
               at_least_two: "は最低2つ以上、必要です"
               at_least_one_correct: "は最低1つ以上、正解が必要です"
+
+  google_login_api:
+    callback:
+      success: "ログインしました"
+    verify_g_csrf_token:
+      fail: "不正なアクセスです"
+
