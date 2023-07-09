@@ -68,10 +68,10 @@ group :development do
   # gem "spring"
 
   # 検査基準・対象なども調整できる https://zenn.dev/tmasuyama1114/books/ab51fea5d5f659/viewer/rubocop
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec'
+  gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec"
 end
 
 group :test do
@@ -84,21 +84,21 @@ end
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
 #環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
-gem 'dotenv-rails'
+gem "dotenv-rails"
 
-gem 'list'
+gem "list"
 
 # 利用規約とプライバシーポリシーの静的ページ作成　
-gem 'high_voltage'
+gem "high_voltage"
 
 # ユーザー機能認証
-gem 'sorcery'
+gem "sorcery"
 
 # i18n
-gem 'rails-i18n', '~> 7.0.0'
+gem "rails-i18n", "~> 7.0.0"
 
-#Google公式のgem 公式：https://github.com/googleapis/google-auth-library-ruby　
-gem 'googleauth'
+# Google公式のgem 公式：https://github.com/googleapis/google-auth-library-ruby
+gem "googleauth"
 
-#
-gem 'config'
+# configを使った定数管理の方法 https://qiita.com/sazumy/items/8d3b06d0d42af114a383
+gem "config"
