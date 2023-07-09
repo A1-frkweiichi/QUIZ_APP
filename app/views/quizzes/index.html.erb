@@ -6,9 +6,9 @@
   <% @quizzes.each do |quiz| %>
     <%= render quiz %>
     <p>
-      <%= link_to "Show this quiz", quiz %>
+      <%= link_to t("quizzes.actions.show"), quiz %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New quiz", new_quiz_path %>
+<%= link_to t("quizzes.actions.new"), new_quiz_path %>

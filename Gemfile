@@ -102,3 +102,6 @@ gem "googleauth"
 
 # configを使った定数管理の方法 https://qiita.com/sazumy/items/8d3b06d0d42af114a383
 gem "config"
+
+#SEO
+gem 'meta-tags'
