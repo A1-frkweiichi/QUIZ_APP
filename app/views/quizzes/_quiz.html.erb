@@ -1,17 +1,30 @@
 <div id="<%= dom_id quiz %>">
   <p>
-    <strong>Title:</strong>
+    <strong><%= t("quizzes.quiz.title") %> :</strong>
+    Title:</strong>
     <%= quiz.title %>
   </p>
 
   <p>
-    <strong>Content:</strong>
+    <strong><%= t("quizzes.quiz.content") %> :</strong>
     <%= quiz.content %>
   </p>
 
   <p>
-    <strong>Image:</strong>
+    <strong><%= t("quizzes.quiz.image") %> :</strong>
     <%= quiz.image %>
   </p>
 
+  <p>
+    <strong><%= t("quizzes.quiz.choices") %> :</strong>
+    <ul>
+      <% quiz.choices.each do |choice| %>
+        <li>
+          <%= choice.content %>
+          <%= choice.image %>
+          <%= choice.is_correct %>   <%# 本当はここで表示しない（解説ページで表示）%>
+        </li>
+      <% end %>
+    </ul>
+  </p>
 </div>
