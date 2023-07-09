@@ -97,6 +97,8 @@ gem 'sorcery'
 # i18n
 gem 'rails-i18n', '~> 7.0.0'
 
-#トークンのウニャウニャ 公式：https://github.com/googleapis/google-auth-library-ruby　
+#Google公式のgem 公式：https://github.com/googleapis/google-auth-library-ruby　
 gem 'googleauth'
 
+#
+gem 'config'

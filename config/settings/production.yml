@@ -1,0 +1,2 @@
+login:
+  google_login: 'https://knowledge-tree-quiz.fly.dev/google_login_api/callback'

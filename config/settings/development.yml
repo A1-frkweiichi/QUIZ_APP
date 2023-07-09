@@ -1,0 +1,2 @@
+login:
+  google_login: 'http://localhost:3000/google_login_api/callback'
