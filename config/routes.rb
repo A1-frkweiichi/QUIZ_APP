@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root "home#top"
 
   post '/guest_login', to: 'user_sessions#guest_login'
+  get '/logout', to: 'user_sessions#destroy'
   
   # Google_Loginのルーティング
   post '/google_login_api/callback', to: 'google_login_api#callback'
+  
 end

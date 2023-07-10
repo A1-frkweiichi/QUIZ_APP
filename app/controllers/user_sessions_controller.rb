@@ -1,4 +1,10 @@
 class UserSessionsController < ApplicationController
+
+  def destroy
+    logout
+    redirect_to root_path, success: t('.success')
+  end
+
   def guest_login
     @guest_user = User.create(
       name: "ゲスト",
