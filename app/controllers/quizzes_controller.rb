@@ -48,14 +48,21 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, :content, :image, choices_attributes: [:id,
-                                                                                :content,
-                                                                                :image,
-                                                                                :is_correct,
-                                                                                :_destroy])
+    params.require(:quiz).permit(:title,
+                                 :content,
+                                 :quiz_image,
+                                 :explanation,
+                                 :explanation_image,
+                                 choices_attributes:
+                                                   [:id,
+                                                    :content,
+                                                    :choice_image,
+                                                    :is_correct,
+                                                    :explanation,
+                                                    :explanation_image,
+                                                    :_destroy])
   end
 
-  # 新規作成、編集、エラー後の再表示でも、選択肢を4つにする
   def build_choices
     unbuilt_choices = [4 - @quiz.choices.size, 0].max
     unbuilt_choices.times { @quiz.choices.build }
