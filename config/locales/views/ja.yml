@@ -28,6 +28,8 @@ ja:
       content: "内容"
       image: "画像"
       choices: "選択肢"
+      explanation: "解説"
+      explanation_image: "解説の画像"
     actions:
       new: "新規作成"
       edit: "編集"
@@ -39,14 +41,8 @@ ja:
     form:
       error: "エラー"
       prohibited: "下記のエラーが起きました："
-      quiz_title: "クイズのタイトル"
-      quiz_content: "クイズの本文"
-      quiz_image: "クイズの画像"
-      choice_content: "選択肢の本文"
-      choice_image: "選択肢の画像"
-      is_correct: "正解"
-      remove_choice: "選択肢を削除"
       submit: "送信"
+      remove_choice: "選択肢を削除"
     create:
       success: "クイズが正常に作成されました。"
     update:
