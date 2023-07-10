@@ -12,7 +12,17 @@
 
   <p>
     <strong><%= t("quizzes.quiz.image") %> :</strong>
-    <%= quiz.image %>
+    <%= quiz.quiz_image %>
+  </p>
+
+  <p>
+    <strong><%= t("quizzes.quiz.explanation") %> :</strong>
+    <%= quiz.explanation %>
+  </p>
+
+  <p>
+    <strong><%= t("quizzes.quiz.explanation_image") %> :</strong>
+    <%= quiz.explanation_image %>
   </p>
 
   <p>
@@ -21,8 +31,10 @@
       <% quiz.choices.each do |choice| %>
         <li>
           <%= choice.content %>
-          <%= choice.image %>
+          <%= choice.choice_image %>
           <%= choice.is_correct %>   <%# 本当はここで表示しない（解説ページで表示）%>
+          <%= choice.explanation %>
+          <%= choice.explanation_image %>
         </li>
       <% end %>
     </ul>

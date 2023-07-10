@@ -53,6 +53,7 @@ Metrics/MethodLength:
   Max: 10
   Exclude:
     - "app/helpers/application_helper.rb"
+    - "app/controllers/quizzes_controller.rb"
 
 # ネストが深すぎないかをチェック（if文のネストもチェック）
 Metrics/BlockNesting:

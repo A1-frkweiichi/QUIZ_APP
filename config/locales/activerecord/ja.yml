@@ -8,3 +8,15 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      quiz:
+        title: "クイズのタイトル"
+        content: "クイズの本文"
+        quiz_image: "クイズの画像"
+        explanation: "解説"
+        explanation_image: "解説の画像"
+      choice:
+        content: "選択肢の本文"
+        choice_image: "選択肢の画像"
+        is_correct: "正解"
+        explanation: "解説"
+        explanation_image: "解説の画像"
