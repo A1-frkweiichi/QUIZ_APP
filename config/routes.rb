@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   
   # Google_Loginのルーティング
   post '/google_login_api/callback', to: 'google_login_api#callback'
+  resources :google_login_apis, only: %i[destroy]
 end

@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :require_login, only: %i[new edit update destroy]
   before_action :set_quiz, only: %i[show edit update destroy]
 
   def index

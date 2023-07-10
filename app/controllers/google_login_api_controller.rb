@@ -1,63 +1,40 @@
-# 参考記事 https://zenn.dev/yoiyoicho/articles/c44a80e4bb4515
 class GoogleLoginApiController < ApplicationController
-  # GoogleのIDトークンを検証するためのライブラリを読み込みます
+  # 以下のドキュメントをもとに実装
+  # https://developers.google.com/identity/gsi/web/guides/display-button
+  # https://developers.google.com/identity/gsi/web/reference/html-reference#id-token-handler-endpoint
+  # https://github.com/googleapis/google-auth-library-ruby/blob/main/lib/googleauth/id_tokens.rb
+
+  require "googleauth/id_tokens/errors"
   require "googleauth/id_tokens/verifier"
 
-  # CSRF攻撃から保護しますが、callbackアクションは除外します
+
+  # WebアプリとLINEプラットフォーム間でのCSRF対策は自前で行うため
+  # RailsデフォルトのCSRF対策メソッドは無効化する
   protect_from_forgery except: :callback
-  # 各アクションの前に、GoogleのCSRFトークンを検証します
-  before_action :verify_g_csrf_token
+  before_action :verify_g_csrf_token, only: :callback
 
   def callback
-    # トークンを検証し、ユーザーを見つけてセッションを設定し、リダイレクトします
-    verify_token_and_redirect
+    if params[:credential].present?
+      payload = Google::Auth::IDTokens.verify_oidc(params[:credential], aud: ENV['GOOGLE_CLIENT_ID'])
+      user = User.find_or_initialize_by(email: payload['email'])
+
+      if user.save
+        auto_login(user)
+        redirect_to quizzes_path, success: t('.success')
+      else
+        redirect_to root_path, error: t('.fail')
+      end
+
+    else
+      redirect_to root_path, error: t('.fail')
+    end
   end
 
   private
 
-  def verify_token_and_redirect
-    # GoogleのOIDCトークンを検証します
-    payload = verify_oidc_token
-    # ペイロードからユーザーを見つけるか作成します
-    user = find_or_create_user(payload)
-    # ユーザーのセッションを設定します
-    user_session(user)
-    # クイズのページにリダイレクトします
-    redirect_to quizzes_path, notice: t(".success")
-  end
-
-  def verify_oidc_token
-    # GoogleのOIDCトークンを検証します
-    Google::Auth::IDTokens.verify_oidc(params[:credential], aud: ENV.fetch("GOOGLE_CLIENT_ID"))
-  end
-
-  def find_or_create_user(payload)
-    # ペイロードからユーザーを見つけるか作成します
-    User.find_or_create_by(email: payload["email"])
-  end
-
-  def user_session(user)
-    # ユーザーのセッションを設定します
-    session[:user_id] = user.id
-  end
-
   def verify_g_csrf_token
-    # CSRFトークンが無効な場合、ルートパスにリダイレクトします
-    redirect_to root_path, notice: t(".fail") if csrf_token_invalid?
-  end
-
-  def csrf_token_invalid?
-    # CSRFトークンが欠落しているか無効であるかを確認します
-    missing_token? || invalid_token?
-  end
-
-  def missing_token?
-    # CSRFトークンが欠落しているかを確認します
-    cookies["g_csrf_token"].blank? || params[:g_csrf_token].blank?
-  end
-
-  def invalid_token?
-    # CSRFトークンが無効であるかを確認します
-    cookies["g_csrf_token"] != params[:g_csrf_token]
+    if cookies["g_csrf_token"].blank? || params[:g_csrf_token].blank? || cookies["g_csrf_token"] != params[:g_csrf_token]
+      redirect_to root_path, error: t('.fail')
+    end
   end
 end
