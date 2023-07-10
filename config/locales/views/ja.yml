@@ -21,7 +21,7 @@ ja:
       login: "ログイン"
       to_register_page: "登録ページへ"
       password_forget: "パスワードをお忘れの方はこちら"
-    logout:
+    destroy:
       success: "ログアウトしました"
 
   quizzes:
