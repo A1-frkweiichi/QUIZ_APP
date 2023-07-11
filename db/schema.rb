@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_064222) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_074652) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "authentications", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
-    t.index ["user_id"], name: "index_authentications_on_user_id"
-  end
 
   create_table "choices", force: :cascade do |t|
     t.bigint "quiz_id", null: false
@@ -39,20 +29,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_064222) do
   create_table "quizzes", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "image"
+    t.string "quiz_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "crypted_password"
-    t.string "salt"
-    t.string "name", null: false
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.text "explanation", null: false
+    t.string "explanation_image"
   end
 
   add_foreign_key "choices", "quizzes"
