@@ -4,10 +4,11 @@
 
 <div id="quizzes">
   <% @quizzes.each do |quiz| %>
-    <%= render quiz %>
-    <p>
-      <%= link_to t("quizzes.actions.show"), quiz %>
-    </p>
+    <ul>
+      <li>
+        <%= link_to quiz.title, quiz %>
+      </li>
+    </ul>
   <% end %>
 </div>
 
