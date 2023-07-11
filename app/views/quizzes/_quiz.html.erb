@@ -1,7 +1,6 @@
 <div id="<%= dom_id quiz %>">
   <p>
     <strong><%= t("quizzes.quiz.title") %> :</strong>
-    Title:</strong>
     <%= quiz.title %>
   </p>
 
@@ -35,6 +34,7 @@
           <%= choice.is_correct %>   <%# 本当はここで表示しない（解説ページで表示）%>
           <%= choice.explanation %>
           <%= choice.explanation_image %>
+          <%= check_box :choice, { multiple: true } %>
         </li>
       <% end %>
     </ul>
