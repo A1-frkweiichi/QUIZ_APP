@@ -6,7 +6,8 @@
   <% @quizzes.each do |quiz| %>
     <ul>
       <li>
-        <%= link_to quiz.title, quiz %>
+        <%= quiz.category %>
+        <%= link_to quiz.title, quiz %> 
       </li>
     </ul>
   <% end %>

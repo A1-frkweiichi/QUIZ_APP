@@ -24,6 +24,7 @@ ja:
 
   quizzes:
     quiz:
+      category: "カテゴリー"
       title: "タイトル"
       content: "内容"
       image: "画像"

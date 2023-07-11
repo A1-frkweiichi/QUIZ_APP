@@ -56,6 +56,7 @@ class QuizzesController < ApplicationController
                                  :quiz_image,
                                  :explanation,
                                  :explanation_image,
+                                 :category,
                                  choices_attributes:
                                                    [:id,
                                                     :content,
