@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   
   # Google_Loginのルーティング
   post '/google_login_api/callback', to: 'google_login_api#callback'
+
+  get "explanation/:id", :to => "quizzes#explanation", as: 'explanation'
 end

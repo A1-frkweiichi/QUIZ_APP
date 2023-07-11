@@ -21,21 +21,5 @@
   <div class="log-in my-5 text-center">
     <button class="btn btn-info">ログイン</button>
     <button class="btn btn-success">ゲストログイン</button>
-
-    <!-- Googleログインボタンの表示 ここから追加 -->
-      <div id="g_id_onload"
-        data-client_id= <%= ENV['GOOGLE_CLIENT_ID'] %>
-        data-login_uri=<%= Settings.login[:google_login] %>
-        data-auto_prompt="false">
-      </div>
-      <div class="g_id_signin"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left">
-      </div>
-    <!-- ここまで追加 -->
   </div>
 </div>
