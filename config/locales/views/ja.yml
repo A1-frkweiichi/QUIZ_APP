@@ -38,6 +38,7 @@ ja:
       back: "戻る"
       submit: "送信"
       cancel: "キャンセル"
+      explanation: "解説"
     form:
       error: "エラー"
       prohibited: "下記のエラーが起きました："
