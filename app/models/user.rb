@@ -21,4 +21,12 @@ class User < ApplicationRecord
     user.name = auth.info.name
     user.email = auth.info.email
   end
+
+  def self.guest
+    find_or_create_by!(email: "#{SecureRandom.alphanumeric(10)}@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = "ゲストユーザー"
+    end
+  end
 end
