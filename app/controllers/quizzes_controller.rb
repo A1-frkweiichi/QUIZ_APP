@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: %i[show edit update destroy]
+  before_action :set_quiz, only: %i[show edit update destroy explanation]
 
   def index
     @quizzes = Quiz.all
@@ -41,6 +41,9 @@ class QuizzesController < ApplicationController
     redirect_to quizzes_url, notice: t(".success")
   end
 
+  def explanation
+  end
+
   private
 
   def set_quiz
@@ -53,6 +56,7 @@ class QuizzesController < ApplicationController
                                  :quiz_image,
                                  :explanation,
                                  :explanation_image,
+                                 :category,
                                  choices_attributes:
                                                    [:id,
                                                     :content,

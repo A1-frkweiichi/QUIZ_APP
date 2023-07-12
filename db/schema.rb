@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_093307) do
     t.datetime "updated_at", null: false
     t.text "explanation", null: false
     t.string "explanation_image"
+    t.string "category", null: false
   end
 
   create_table "users", force: :cascade do |t|

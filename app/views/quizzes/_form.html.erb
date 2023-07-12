@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category, ["HTML / CSS", "JavaScript", "Ruby", "Ruby on Rails", "RSpec", "PHP", "Laravel", "SQL", "AWS", "Docker", "Git / Github", "Web技術の基本（サーバ、ネットワーク、データベース等）", "プロダクト開発（初めてのポートフォリオ作り）"] %>
+  </div>
+
+  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>

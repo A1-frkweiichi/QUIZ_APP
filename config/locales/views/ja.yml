@@ -24,6 +24,7 @@ ja:
 
   quizzes:
     quiz:
+      category: "カテゴリー"
       title: "タイトル"
       content: "内容"
       image: "画像"
@@ -38,6 +39,7 @@ ja:
       back: "戻る"
       submit: "送信"
       cancel: "キャンセル"
+      explanation: "解説"
     form:
       error: "エラー"
       prohibited: "下記のエラーが起きました："
