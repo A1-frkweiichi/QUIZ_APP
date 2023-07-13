@@ -12,7 +12,7 @@ class User < ApplicationRecord
   end
 
   def self.find_or_create_user(auth)
-    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+    find_or_create_by(provider: auth.provider, uid: auth.uid, deleted_at: nil) do |user|
       user.password = Devise.friendly_token[0, 20]
     end
   end
@@ -28,5 +28,9 @@ class User < ApplicationRecord
       user.password_confirmation = user.password
       user.name = "ゲストユーザー"
     end
+  end
+
+  def active_for_authentication?
+    super && !deleted_at
   end
 end
