@@ -1,4 +1,6 @@
 class Quiz < ApplicationRecord
+  has_rich_text :content
+  has_rich_text :explanation
   has_many :choices, dependent: :destroy
 
   accepts_nested_attributes_for :choices,

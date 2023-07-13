@@ -1,11 +1,13 @@
 // Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
-import "./controllers"
+import "@hotwired/turbo-rails";
+import "./controllers";
+import "trix";
+import "@rails/actiontext";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleDarkMode = document.querySelector('#toggle-dark-mode');
-  
-    toggleDarkMode.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleDarkMode = document.querySelector("#toggle-dark-mode");
+
+  toggleDarkMode.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
   });
+});

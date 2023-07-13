@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 
 group :development, :test do
@@ -92,6 +92,14 @@ gem "list"
 gem "high_voltage"
 
 # ユーザー機能認証
+gem 'devise'
+#ログイン認証の日本語表示 公式：https://github.com/tigrish/devise-i18n　記事：https://karlley.hatenablog.jp/entry/2022/09/23/060408
+gem 'devise-i18n'
+
+#google_loginようにgem　公式：https://github.com/zquestz/omniauth-google-oauth2 参考：https://qiita.com/akioneway94/items/35641ad30c2acb23b562　
+gem 'omniauth-google-oauth2'
+#上記のgemの問題点改善 公式：https://rubygems.org/gems/omniauth-rails_csrf_protection/versions/0.1.0?locale=ja　参考：https://qiita.com/NT90957869/items/2a3ce18dedf93ccf2bdc
+gem "omniauth-rails_csrf_protection"
 
 # i18n
 gem "rails-i18n", "~> 7.0.0"
