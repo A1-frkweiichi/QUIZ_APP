@@ -2,31 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
 
 .developers{
   margin: 0;
-  height: calc(100vh - 8em);
-  font-family: "Muli", sans-serif;
   background-color: #f9f9f9;
-}
-
-.developers h1 {
-  text-align: center;
-  margin: 1.5em;
+  display: flex;
+  justify-content: center;
 }
 
 .developers .container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+  width: 90%;
 }
 
 .items {
   display: flex;
-  align-items: center;
-  width: fit-content;
-  animation: carouselAnim 5s infinite alternate linear;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .entry {
@@ -43,20 +34,6 @@
   box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-width: 768px) {
-  .items {
-    animation: carouselAnim 5s infinite alternate linear;
-  }
-
-  @keyframes carouselAnim {
-    from {
-      transform: translate(calc(-100% + (2 * 300px)));
-    }
-    to {
-      transform: translate(calc(-100% + (5 * 600px)));
-    }
-  }
-}
 
 .entry p {
   text-align: center;
@@ -95,41 +72,4 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-@keyframes carouselAnim {
-  from {
-    transform: translate(calc(-100% + (2 * 300px)));
-  }
-  to {
-    transform: translate(calc(-100% + (5 * 600px)));
-  }
-}
-
-.container .faders {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-}
-
-.faders .right,
-.faders .left {
-  background: linear-gradient(
-    to right,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  width: 15%;
-  height: 100%;
-  position: absolute;
-  z-index: 200;
-}
-
-.right {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
