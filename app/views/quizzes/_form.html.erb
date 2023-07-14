@@ -1,81 +1,96 @@
-<%= form_with(model: quiz) do |form| %>
-  <% if quiz.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(quiz.errors.count, t('quizzes.form.error')) %> <%= t('quizzes.form.prohibited') %></h2>
+<div class="container flex justify-center">
+  <%= form_with(model: quiz) do |form| %>
+    <% if quiz.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(quiz.errors.count, t('quizzes.form.error')) %> <%= t('quizzes.form.prohibited') %></h2>
 
-      <ul>
-        <% quiz.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.select :category, ["HTML / CSS", "JavaScript", "Ruby", "Ruby on Rails", "RSpec", "PHP", "Laravel", "SQL", "AWS", "Docker", "Git / GitHub", "Web技術の基本（サーバ、ネットワーク、データベース等）", "プロダクト開発（初めてのポートフォリオ作り）"] %>
-  </div>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content, class: "overflow-auto" %>
-  </div>
-
-  <div>
-    <%= form.label :quiz_image, style: "display: block" %>
-    <%= form.text_field :quiz_image %>
-  </div>
-
-  <div>
-    <%= form.label :explanation, style: "display: block" %>
-    <%= form.rich_text_area :explanation, class: "overflow-auto" %>
-  </div>
-
-  <div>
-    <%= form.label :explanation_image, style: "display: block" %>
-    <%= form.text_field :explanation_image %>
-  </div>
-
-  <%= form.fields_for :choices do |choice_form| %>
-    <div>
-      <%= choice_form.label :content, style: "display: block" %>
-      <%= choice_form.rich_text_area :content, class: "overflow-auto" %>
-    </div>
-
-    <div>
-      <%= choice_form.label :choice_image, style: "display: block" %>
-      <%= choice_form.text_field :choice_image %>
-    </div>
-
-    <div>
-      <%= choice_form.label :is_correct, style: "display: block" %>
-      <%= choice_form.check_box :is_correct %>
-    </div>
-
-    <div>
-      <%= choice_form.label :explanation, style: "display: block" %>
-      <%= choice_form.rich_text_area :explanation, class: "overflow-auto" %>
-    </div>
-
-    <div>
-      <%= choice_form.label :explanation_image, style: "display: block" %>
-      <%= choice_form.text_field :explanation_image %>
-    </div>
-
-    <% if @quiz.persisted? %>
-      <div>
-        <%= choice_form.label :_destroy, t('quizzes.form.remove_choice'), style: "display: block" %>
-        <%= choice_form.check_box :_destroy %>
+        <ul>
+          <% quiz.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
-  <% end %>
+    <div class="text-stone-600">
+      <div class="my-5">
+        <h4 class="text-stone-600">
+          <div class="badge badge-error text-stone-600"><%= t('items.new.required') %></div>
+          <%= form.label :category, style: "display: block", class: "font-bold"%>
+        </h4>
+          <%= form.select :category, ["HTML / CSS", "JavaScript", "Ruby", "Ruby on Rails", "RSpec", "PHP", "Laravel", "SQL", "AWS", "Docker", "Git / GitHub", "Web技術の基本（サーバ、ネットワーク、データベース等）", "プロダクト開発（初めてのポートフォリオ作り）"],class: "select select-bordered  select-success w-full max-w-xs" %>
+      </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="my-5">
+        <h4 class="text-stone-600">
+          <div class="badge badge-error text-stone-600"><%= t('items.new.required') %></div>
+          <%= form.label :title, style: "display: block", class: "font-bold"%>
+        </h4>
+        <%= form.text_field :title, class: "input input-bordered input-success input-sm w-full max-w-xs" %>
+      </div>
+
+      <div class="my-5">
+        <h4 class="text-stone-600">
+          <div class="badge badge-ghost text-stone-400"><%= t('items.new.any') %></div>
+          <%= form.label :content, style: "display: block", class: "font-bold"%>
+        </h4>
+        <%= form.rich_text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
+      </div>
+
+      <div class="my-5">
+        <%= form.label :quiz_image, style: "display: block" , class: "font-bold"%>
+        <%= form.file_field :quiz_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+      </div>
+
+      <div class="my-5">
+        <h4 class="text-stone-600">
+          <div class="badge badge-ghost text-stone-400"><%= t('items.new.any') %></div>
+          <%= form.label :explanation, style: "display: block" , class: "font-bold"%>
+        </h4>
+        <%= form.rich_text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
+      </div>
+
+      <div class="my-5">
+        <%= form.label :explanation_image, style: "display: block" , class: "font-bold"%>
+        <%= form.file_field :explanation_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+      </div>
+      <div class="mt-10 outline p-10 rounded-md">
+        <h1 class="text-3xl text-center font-bold mb-3">選択肢の作成</h1>
+        <%# 選択肢 %>
+        <%= form.fields_for :choices do |choice_form| %>
+          <div class="my-5">
+            <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
+            <%= choice_form.rich_text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
+          </div>
+
+          <div class="my-5">
+            <%= choice_form.label :choice_image, style: "display: block" , class: "font-bold"%>
+            <%= choice_form.file_field :choice_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+          </div>
+
+          <div class="my-5">
+            <%= choice_form.label :is_correct, style: "display: block" , class: "font-bold"%>
+            <%= choice_form.check_box :is_correct, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          </div>
+
+          <div class="my-5">
+            <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
+            <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
+          </div>
+
+          <div class="my-5">
+            <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
+            <%= choice_form.file_field :explanation_image ,class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+          </div>
+
+          <% if @quiz.persisted? %>
+            <div>
+              <%= choice_form.label :_destroy, t('quizzes.form.remove_choice'), style: "display: block" %>
+              <%= choice_form.check_box :_destroy , class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <%= form.submit  class: 'btn btn-success mt-4 mb-28' %>
+  <% end %>
+</div>
