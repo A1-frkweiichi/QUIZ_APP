@@ -38,7 +38,7 @@ class QuizzesController < ApplicationController
 
   def destroy
     @quiz.destroy
-    redirect_to quizzes_url, notice: t(".success")
+    redirect_to quizzes_url, notice: t(".success"), status: :see_other
   end
 
   def explanation
