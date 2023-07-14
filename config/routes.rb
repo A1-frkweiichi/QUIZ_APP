@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes
+  get "explanation/:id", :to => "quizzes#explanation", as: 'explanation'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
