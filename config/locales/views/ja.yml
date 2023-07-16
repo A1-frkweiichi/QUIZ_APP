@@ -1,0 +1,69 @@
+ja:
+  defaults:
+    login: "ログイン"
+    register: "登録"
+    logout: "ログアウト"
+    message:
+      updated: "更新しました"
+      not_updated: "更新できませんでした"
+      deleted: "削除しました"
+      delete_confirm: "削除しますか？"
+      not_authorized: "権限がありません"
+      require_login: "ログインしてください"
+      created: "作成しました"
+      not_created: "作成できませんでした"
+  users:
+    new:
+      sign_up: "ユーザー登録"
+      to_login_page: "ログインページへ"
+  user_sessions:
+    new:
+      login: "ログイン"
+      to_register_page: "登録ページへ"
+      password_forget: "パスワードをお忘れの方はこちら"
+
+  quizzes:
+    quiz:
+      category: "カテゴリー"
+      title: "タイトル"
+      content: "内容"
+      image: "画像"
+      choices: "選択肢"
+      explanation: "解説"
+      explanation_image: "解説の画像"
+    actions:
+      new: "新規作成"
+      edit: "編集"
+      destroy: "削除"
+      show: "詳細"
+      back: "戻る"
+      submit: "送信"
+      cancel: "キャンセル"
+      explanation: "解説"
+    form:
+      error: "エラー"
+      prohibited: "下記のエラーが起きました："
+      submit: "送信"
+      remove_choice: "選択肢を削除"
+    create:
+      success: "クイズが正常に作成されました。"
+    update:
+      success: "クイズが正常に更新されました。"
+    destroy:
+      success: "クイズが正常に削除されました。"
+
+  activerecord:
+    errors:
+      models:
+        quiz:
+          attributes:
+            choices:
+              at_least_two: "は最低2つ以上、必要です"
+              at_least_one_correct: "は最低1つ以上、正解が必要です"
+
+  google_login_api:
+    callback:
+      success: "ログインしました"
+    verify_g_csrf_token:
+      fail: "不正なアクセスです"
+

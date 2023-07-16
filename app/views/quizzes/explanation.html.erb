@@ -1,0 +1,24 @@
+<h1>クイズ回答・解説</h1>
+
+<%= @quiz.title %>
+<%= @quiz.content %>
+
+
+<p>
+  <strong><%= t("quizzes.quiz.choices") %> :</strong>
+  <ul>
+    <% @quiz.choices.each do |choice| %>
+      <li>
+        <%= choice.content %>
+        <%= choice.choice_image %>
+        <%= choice.is_correct %> 
+        <%= choice.explanation %>
+        <%= choice.explanation_image %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'ログイン' %>
+<%= link_to t("quizzes.actions.back"), quizzes_path %>
+<%= link_to '間違い報告' %>

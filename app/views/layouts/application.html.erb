@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
+    <!-- Google tag (gtag.js)アナリティクスのコード -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVB81B51LQ"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FVB81B51LQ');
+      </script>
     <title>QUIZApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -8,9 +17,17 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
+    <%= display_meta_tags(default_meta_tags) %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      quiz:
+        category: 'カテゴリー'
+        title: "クイズのタイトル"
+        content: "クイズの本文"
+        quiz_image: "クイズの画像"
+        explanation: "クイズの解説"
+        explanation_image: "解説の画像"
+      choice:
+        content: "選択肢の本文"
+        choice_image: "選択肢の画像"
+        is_correct: "正解"
+        explanation: "選択肢の解説"
+        explanation_image: "解説の画像"

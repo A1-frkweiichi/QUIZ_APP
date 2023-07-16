@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.5"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5.3"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -49,7 +49,8 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -65,6 +66,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # 検査基準・対象なども調整できる https://zenn.dev/tmasuyama1114/books/ab51fea5d5f659/viewer/rubocop
+  gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec"
 end
 
 group :test do
@@ -73,3 +80,35 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+#環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
+gem "dotenv-rails"
+
+gem "list"
+
+# 利用規約とプライバシーポリシーの静的ページ作成　
+gem "high_voltage"
+
+# ユーザー機能認証
+gem 'devise'
+#ログイン認証の日本語表示 公式：https://github.com/tigrish/devise-i18n　記事：https://karlley.hatenablog.jp/entry/2022/09/23/060408
+gem 'devise-i18n'
+
+#google_loginようにgem　公式：https://github.com/zquestz/omniauth-google-oauth2 参考：https://qiita.com/akioneway94/items/35641ad30c2acb23b562　
+gem 'omniauth-google-oauth2'
+#上記のgemの問題点改善 公式：https://rubygems.org/gems/omniauth-rails_csrf_protection/versions/0.1.0?locale=ja　参考：https://qiita.com/NT90957869/items/2a3ce18dedf93ccf2bdc
+gem "omniauth-rails_csrf_protection"
+
+# i18n
+gem "rails-i18n", "~> 7.0.0"
+
+# Google公式のgem 公式：https://github.com/googleapis/google-auth-library-ruby
+gem "googleauth"
+
+# configを使った定数管理の方法 https://qiita.com/sazumy/items/8d3b06d0d42af114a383
+gem "config"
+
+#SEO
+gem 'meta-tags'
