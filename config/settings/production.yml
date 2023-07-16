@@ -1,2 +1,2 @@
 login:
-  google_login: 'https://knowledge-tree-quiz.fly.dev/google_login_api/callback'
+  google_login: "https://knowledge-tree-quiz.magia.runteq.jp/google_login_api/callback"
