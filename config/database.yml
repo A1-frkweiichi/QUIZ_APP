@@ -83,5 +83,5 @@ production:
   <<: *default
   database: clk51nosk00gh9tp5cc1jgznu
   username: clk51nosj00gf9tp55t864v4i
-  password: <%= ENV['HIEROGLITTER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['KNOWLEDGETREEQUIZ_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
