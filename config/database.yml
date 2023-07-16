@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: QUIZ_APP_production
-  username: QUIZ_APP
-  password: <%= ENV["QUIZ_APP_DATABASE_PASSWORD"] %>
+  database: clk51nosk00gh9tp5cc1jgznu
+  username: clk51nosj00gf9tp55t864v4i
+  password: <%= ENV['HIEROGLITTER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
