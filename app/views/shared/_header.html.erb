@@ -21,6 +21,7 @@
     </div>
     <div class="navbar-end hidden lg:flex">
       <ul class="menu menu-horizontal p-0 mr-2">
+        <li><%= link_to "ユーザー編集", edit_user_registration_path %></li>
         <li><%= link_to "マイページ", "#" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %></li>
         <% if current_user.provider %>
