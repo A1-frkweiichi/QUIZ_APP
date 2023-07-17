@@ -35,4 +35,10 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && !deleted_at
   end
+
+  def update_without_password(params, *options)
+    result = update(params, *options)
+    clean_up_passwords
+    result
+  end
 end
