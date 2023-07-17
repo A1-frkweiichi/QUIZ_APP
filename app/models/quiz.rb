@@ -2,6 +2,7 @@ class Quiz < ApplicationRecord
   has_rich_text :content
   has_rich_text :explanation
   has_many :choices, dependent: :destroy
+  belongs_to :user
 
   accepts_nested_attributes_for :choices,
                                 reject_if: proc { |attributes| attributes["content"].blank? },
