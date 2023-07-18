@@ -1,7 +1,8 @@
 <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
   <h1 class="text-5xl"><%= @quiz.title %></h1>
   <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-800 py-12">結果</h1>
-  <% if params[:is_correct] == true %>
+  <% selected_choice = @quiz.choices.find_by(id: params[:choice_id]) %>
+  <% if selected_choice && selected_choice.is_correct %>
     <p class="answer text-9xl text-red-500">正解!</p>
   <% else %>
     <p class="answer text-9xl text-blue-500">残念!</p>
