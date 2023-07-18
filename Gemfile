@@ -112,3 +112,7 @@ gem "config"
 
 #SEO
 gem 'meta-tags'
+
+#シンタックスハイライト
+gem 'coderay'
+gem 'redcarpet'
