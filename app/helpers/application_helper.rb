@@ -49,7 +49,7 @@ module ApplicationHelper
 
         CodeRay.scan(code, lang).div
     end
-
+  end
   #マークダウン記法で表示する
   def markdown(text)
     html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
