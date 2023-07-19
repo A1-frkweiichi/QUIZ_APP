@@ -26,6 +26,7 @@ Layout/LineLength:
     - "spec/rails_helper.rb"
     - "spec/spec_helper.rb"
     - "app/models/user.rb"
+    - "app/uploaders/avatar_uploader.rb"
 
 # RSpecは1つのブロックあたりの行数が多くなるため、チェックの除外から外す
 # ブロック内の行数をチェックする
@@ -96,3 +97,7 @@ Style/StringLiterals:
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
   MinNameLength: 1
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - "app/controllers/users/registrations_controller.rb"
