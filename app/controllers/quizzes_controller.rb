@@ -10,7 +10,7 @@ class QuizzesController < ApplicationController
   end
 
   def new
-    @quiz = Quiz.new
+    @quiz = current_user.quizzes.new
     build_choices
   end
 
@@ -19,7 +19,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = current_user.quizzes.build(quiz_params)
+    @quiz = current_user.quizzes.new(quiz_params)
     if @quiz.save
       redirect_to quiz_url(@quiz), notice: t(".success")
     else

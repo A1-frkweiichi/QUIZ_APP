@@ -112,3 +112,12 @@ gem "config"
 
 #SEO
 gem 'meta-tags'
+
+#画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
+
+#シンタックスハイライト
+gem 'coderay'
+gem 'redcarpet'
+
