@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import 'actiontext.css';
-
+@import 'coderay.css';
 
 .developers{
   margin: 0;

@@ -52,6 +52,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_015329) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.bigint "choice_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_answers_on_choice_id"
+    t.index ["quiz_id"], name: "index_answers_on_quiz_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "choices", force: :cascade do |t|
     t.bigint "quiz_id", null: false
     t.text "content"
@@ -96,6 +107,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_015329) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "choices"
+  add_foreign_key "answers", "quizzes"
+  add_foreign_key "answers", "users"
   add_foreign_key "choices", "quizzes"
   add_foreign_key "quizzes", "users"
 end
