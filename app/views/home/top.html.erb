@@ -18,8 +18,11 @@
     <h3 class="text-2xl font-bold text-center">3.みんなで知識を木のように育てましょう！</h3>
     <p class="text-center">→知識を関連づけて、楽しく学びましょう✨</p>
   </div>
-  <div class="log-in my-5 text-center">
-    <button class="btn btn-info">ログイン</button>
-    <button class="btn btn-success">ゲストログイン</button>
-  </div>
+  <% unless current_user %>
+    <div class="log-in my-5 text-center">
+      <%= link_to "ログイン", user_google_oauth2_omniauth_authorize_path, class: "btn btn-info", method: :post %>
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-success", data: { turbo_method: :post} %>
+    </div>
+  <% end %>
 </div>
+
