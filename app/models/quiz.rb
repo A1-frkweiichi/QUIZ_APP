@@ -11,6 +11,8 @@ class Quiz < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :explanation, presence: true
+  validates :category, presence: true
+  validates :level, presence: true
 
   validate :at_least_two_choices
   validate :at_least_one_correct_choice
