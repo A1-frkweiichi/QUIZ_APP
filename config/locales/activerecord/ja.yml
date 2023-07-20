@@ -1,15 +1,15 @@
 ja:
   activerecord:
     models:
-      user: "ユーザー"
+      user: 'ユーザー'
     attributes:
       user:
-        name: "名前"
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "パスワード確認"
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
       quiz:
-        category: "カテゴリー"
+        category: 'カテゴリー'
         title: "クイズのタイトル"
         content: "クイズの本文"
         quiz_image: "クイズの画像"
