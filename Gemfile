@@ -121,4 +121,3 @@ gem 'fog-aws'
 #シンタックスハイライト
 gem 'coderay'
 gem 'redcarpet'
-
