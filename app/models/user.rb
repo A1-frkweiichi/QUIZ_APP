@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # rubocop:disable Rails/HasManyOrHasOneDependent
+  has_many :quizzes
+  # rubocop:enable Rails/HasManyOrHasOneDependent
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,5 +36,11 @@ class User < ApplicationRecord
 
   def active_for_authentication?
     super && !deleted_at
+  end
+
+  def update_without_password(params, *options)
+    result = update(params, *options)
+    clean_up_passwords
+    result
   end
 end

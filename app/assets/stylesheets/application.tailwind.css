@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import 'actiontext.css';
-
+@import 'coderay.css';
 
 .developers{
   margin: 0;
@@ -73,4 +73,15 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.choice-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.explanation-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
 }
