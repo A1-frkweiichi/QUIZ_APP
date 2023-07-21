@@ -23,6 +23,14 @@
       <div class="my-5">
         <h4 class="text-stone-600">
           <div class="badge badge-error text-stone-600"><%= t('items.new.required') %></div>
+          <%= form.label :level, style: "display: block", class: "font-bold"%>
+        </h4>
+          <%= form.select :level, ["入門", "基礎", "応用"],class: "select select-bordered  select-success w-full max-w-xs" %>
+      </div>
+
+      <div class="my-5">
+        <h4 class="text-stone-600">
+          <div class="badge badge-error text-stone-600"><%= t('items.new.required') %></div>
           <%= form.label :title, style: "display: block", class: "font-bold"%>
         </h4>
         <%= form.text_field :title, class: "input input-bordered input-success input-sm w-full max-w-xs" %>

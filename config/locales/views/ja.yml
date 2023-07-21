@@ -21,10 +21,13 @@ ja:
       login: "ログイン"
       to_register_page: "登録ページへ"
       password_forget: "パスワードをお忘れの方はこちら"
+  sessions:
+    guest_login_notice: "ゲストユーザーとしてログインしました。"
 
   quizzes:
     quiz:
       category: "カテゴリー"
+      level: "難易度"
       title: "タイトル"
       content: "内容"
       image: "画像"
@@ -66,4 +69,3 @@ ja:
       success: "ログインしました"
     verify_g_csrf_token:
       fail: "不正なアクセスです"
-

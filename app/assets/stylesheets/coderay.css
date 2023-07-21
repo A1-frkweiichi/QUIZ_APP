@@ -1,0 +1,27 @@
+/* coderay.css */
+
+.code {
+  background-color: #a6a3a3;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.code .code-ray {
+  background-color: #f8f8f8;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+
+.code .code-ray .code-ray-line-number {
+  color: #999999;
+}
+
+.code .code-ray .code-ray-line {
+  display: table-row;
+}
+
+.code .code-ray .code-ray-line code {
+  display: table-cell;
+  padding: 0 0.5em;
+  white-space: pre;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_14_054138) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_063446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_054138) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.bigint "choice_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_answers_on_choice_id"
+    t.index ["quiz_id"], name: "index_answers_on_quiz_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "choices", force: :cascade do |t|
     t.bigint "quiz_id", null: false
     t.text "content"
@@ -73,6 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_054138) do
     t.text "explanation"
     t.string "explanation_image"
     t.string "category", null: false
+    t.bigint "user_id", null: false
+    t.string "level", null: false
+    t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,11 +101,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_054138) do
     t.string "provider"
     t.string "uid"
     t.datetime "deleted_at"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "choices"
+  add_foreign_key "answers", "quizzes"
+  add_foreign_key "answers", "users"
   add_foreign_key "choices", "quizzes"
+  add_foreign_key "quizzes", "users"
 end

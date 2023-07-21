@@ -1,15 +1,16 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: %i[show edit update destroy explanation]
+  before_action :set_quiz, only: %i[edit update destroy]
 
   def index
     @quizzes = Quiz.all
   end
 
   def show
+    @quiz = Quiz.find(params[:id])
   end
 
   def new
-    @quiz = Quiz.new
+    @quiz = current_user.quizzes.new
     build_choices
   end
 
@@ -18,7 +19,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
+    @quiz = current_user.quizzes.new(quiz_params)
     if @quiz.save
       redirect_to quiz_url(@quiz), notice: t(".success")
     else
@@ -38,16 +39,17 @@ class QuizzesController < ApplicationController
 
   def destroy
     @quiz.destroy
-    redirect_to quizzes_url, notice: t(".success")
+    redirect_to quizzes_url, notice: t(".success"), status: :see_other
   end
 
   def explanation
+    @quiz = Quiz.find(params[:id])
   end
 
   private
 
   def set_quiz
-    @quiz = Quiz.find(params[:id])
+    @quiz = current_user.quizzes.find(params[:id])
   end
 
   def quiz_params
@@ -57,6 +59,7 @@ class QuizzesController < ApplicationController
                                  :explanation,
                                  :explanation_image,
                                  :category,
+                                 :level,
                                  choices_attributes:
                                                    [:id,
                                                     :content,
