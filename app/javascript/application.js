@@ -4,7 +4,7 @@ import "./controllers";
 import "trix";
 import "@rails/actiontext";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const toggleDarkMode = document.querySelector("#toggle-dark-mode");
 
   toggleDarkMode.addEventListener("click", () => {
