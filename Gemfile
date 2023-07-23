@@ -122,3 +122,4 @@ gem 'fog-aws'
 gem 'coderay'
 gem 'redcarpet'
 
+gem "aws-sdk-s3", require: false
