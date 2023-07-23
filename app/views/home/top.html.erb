@@ -20,7 +20,7 @@
   </div>
   <% unless current_user %>
     <div class="log-in my-5 text-center">
-      <%= link_to "ログイン", user_google_oauth2_omniauth_authorize_path, class: "btn btn-info", method: :post %>
+      <%= link_to image_tag("google_login_button.png", alt: "Google Login", class: "btn btn"), user_google_oauth2_omniauth_authorize_path, method: :post %>
       <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-success", data: { turbo_method: :post} %>
     </div>
   <% end %>
