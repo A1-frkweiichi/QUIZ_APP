@@ -31,7 +31,11 @@ const steps = [
   }
 ]
 
+//completeOnFinish: trueにすると、最後のステップで終了する
 
 
-const tg = new tourguide.TourGuideClient({ steps: steps, options: options });
+const tg = new tourguide.TourGuideClient({
+  steps: steps,
+  options: options,
+});
 tg.start();
