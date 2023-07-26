@@ -75,7 +75,7 @@
 
             <div class="my-5">
               <%= choice_form.label :choice_image, style: "display: block" , class: "font-bold"%>
-              <%= choice_form.file_field :choice_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+              <%= choice_form.file_field :choice_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
             </div>
 
             <div class="my-5">
