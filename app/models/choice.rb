@@ -1,7 +1,5 @@
 class Choice < ApplicationRecord
   belongs_to :quiz
-  has_rich_text :content
-  has_rich_text :explanation
   default_scope { order(:id) }
 
   validates :content, presence: true

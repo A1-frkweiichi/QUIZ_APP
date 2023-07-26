@@ -41,7 +41,7 @@
           <div class="badge badge-ghost text-stone-400"><%= t('items.new.any') %></div>
           <%= form.label :content, style: "display: block", class: "font-bold"%>
         </h4>
-        <%= form.rich_text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
+        <%= form.text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
       </div>
 
       <div class="my-5">
@@ -54,7 +54,7 @@
           <div class="badge badge-ghost text-stone-400"><%= t('items.new.any') %></div>
           <%= form.label :explanation, style: "display: block" , class: "font-bold"%>
         </h4>
-        <%= form.rich_text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
+        <%= form.text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
       </div>
 
       <div class="my-5">
@@ -67,7 +67,7 @@
         <%= form.fields_for :choices do |choice_form| %>
           <div class="my-5">
             <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
-            <%= choice_form.rich_text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
+            <%= choice_form.text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
           </div>
 
           <div class="my-5">
@@ -82,7 +82,7 @@
 
           <div class="my-5">
             <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
+            <%= choice_form.text_area :explanation, class: "overflow-auto h-1/2" %>
           </div>
 
           <div class="my-5">
