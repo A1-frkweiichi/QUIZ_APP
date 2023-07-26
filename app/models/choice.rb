@@ -2,6 +2,8 @@ class Choice < ApplicationRecord
   belongs_to :quiz
   has_rich_text :content
   has_rich_text :explanation
+  has_many_attached :choice_image
+  has_many_attached :explanation_image
   default_scope { order(:id) }
 
   validates :content, presence: true
