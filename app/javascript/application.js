@@ -3,12 +3,5 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import "trix";
 import "@rails/actiontext";
+import "./custom/dark"
 import "./custom/tourguide"
-
-document.addEventListener("turbo:load", () => {
-  const toggleDarkMode = document.querySelector("#toggle-dark-mode");
-
-  toggleDarkMode.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-  });
-});
