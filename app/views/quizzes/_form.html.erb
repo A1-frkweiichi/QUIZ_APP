@@ -83,11 +83,6 @@
               <%= choice_form.check_box :is_correct, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
             </div>
 
-          <div class="my-5">
-            <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
-          </div>
-
             <div class="my-5">
               <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
               <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
@@ -95,7 +90,7 @@
 
             <div class="my-5">
               <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-              <%= choice_form.file_field :explanation_image ,class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+              <%= choice_form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
             </div>
 
             <% if @quiz.persisted? %>
