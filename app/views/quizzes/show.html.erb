@@ -4,9 +4,8 @@
 
 
 <section class="text-gray-600 body-font w-full text-center items-center mb-24 mt-12">
-  <h1 class="text-xl font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
-  <p class="text-gray-800 text-xl">クイズに答えてください</p>
-  <p class="text-gray-800 text-5xl"><%= @quiz.content %></p>
+  <h1 class="text-4xl font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
+  <h1 class="text-gray-800 text-4xl md:text-5xl max-w-4xl mx-auto"><%= @quiz.content %></h1>
   <div class="container px-0 md:px-5 py-4 mx-auto">
     <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl", style: "width: 400px; height: 300px;" %>
   </div>
@@ -27,6 +26,7 @@
       <% end %>
     </div>
   </div>
+</section>
 
 <div class="flex flex-wrap justify-center lg:w-1/3 sm:mx-auto sm:mb-2 -mx-2">
   <% if @quiz.user_id == current_user.id %>
