@@ -4,10 +4,11 @@
 
 
 <section class="text-gray-600 body-font w-full text-center items-center mb-24 mt-12">
-  <h1 class="sm:text-xl text-lg font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
+  <h1 class="text-xl font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
   <p class="text-gray-800 text-xl">クイズに答えてください</p>
+  <p class="text-gray-800 text-5xl"><%= @quiz.content %></p>
   <div class="container px-0 md:px-5 py-4 mx-auto">
-    <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl" %>
+    <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl", style: "width: 400px; height: 300px;" %>
   </div>
   <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
@@ -41,4 +42,3 @@
     </div>
   <% end %>
 </div>
-</section>
