@@ -32,7 +32,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    user_from_omniauth
     sign_in @user, event: :authentication
     set_flash_message(:notice, :success, kind: provider.to_s.capitalize) if is_navigational_format?
     redirect_to quizzes_path
@@ -40,5 +40,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     redirect_to root_path
+  end
+
+  private
+
+  def user_from_omniauth
+    @user = User.from_omniauth(request.env["omniauth.auth"])
   end
 end
