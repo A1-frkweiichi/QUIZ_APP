@@ -46,7 +46,7 @@
 
       <div class="my-5">
         <%= form.label :quiz_image, style: "display: block" , class: "font-bold"%>
-        <%= form.file_field :quiz_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+        <%= form.file_field :quiz_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
       </div>
 
       <div class="my-5">
@@ -59,45 +59,48 @@
 
       <div class="my-5">
         <%= form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-        <%= form.file_field :explanation_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+        <%= form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
       </div>
-      <div class="mt-10 outline p-10 rounded-md">
-        <h1 class="text-3xl text-center font-bold mb-3">選択肢の作成</h1>
+        <h1 class="text-3xl text-center font-bold mt-16 mb-3">選択肢の作成</h1>
+        <div>※選択肢は2〜4つ作成できます。</div>
         <%# 選択肢 %>
+
         <%= form.fields_for :choices do |choice_form| %>
-          <div class="my-5">
-            <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
-            <%= choice_form.rich_text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
-          </div>
 
-          <div class="my-5">
-            <%= choice_form.label :choice_image, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.file_field :choice_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
-          </div>
-
-          <div class="my-5">
-            <%= choice_form.label :is_correct, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.check_box :is_correct, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
-          </div>
-
-          <div class="my-5">
-            <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
-          </div>
-
-          <div class="my-5">
-            <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-            <%= choice_form.file_field :explanation_image ,class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
-          </div>
-
-          <% if @quiz.persisted? %>
-            <div>
-              <%= choice_form.label :_destroy, t('quizzes.form.remove_choice'), style: "display: block" %>
-              <%= choice_form.check_box :_destroy , class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          <div class="outline mt-10 p-10 rounded-md">
+            <div class="my-5">
+              <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
+              <%= choice_form.rich_text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
             </div>
-          <% end %>
+
+            <div class="my-5">
+              <%= choice_form.label :choice_image, style: "display: block" , class: "font-bold"%>
+              <%= choice_form.file_field :choice_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+            </div>
+
+            <div class="my-5">
+              <%= choice_form.label :is_correct, style: "display: block" , class: "font-bold"%>
+              <%= choice_form.check_box :is_correct, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+            </div>
+
+            <div class="my-5">
+              <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
+              <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
+            </div>
+
+            <div class="my-5">
+              <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
+              <%= choice_form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+            </div>
+
+            <% if @quiz.persisted? %>
+              <div>
+                <%= choice_form.label :_destroy, t('quizzes.form.remove_choice'), style: "display: block" %>
+                <%= choice_form.check_box :_destroy , class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-      </div>
     </div>
     <%= form.submit  class: 'btn btn-success mt-4 mb-28' %>
   <% end %>
