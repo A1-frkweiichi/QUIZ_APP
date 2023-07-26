@@ -72,13 +72,17 @@ group :development do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec"
+
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+
 end
 
 gem "dockerfile-rails", ">= 1.5", :group => :development

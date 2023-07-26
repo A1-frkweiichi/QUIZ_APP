@@ -106,3 +106,11 @@ Rails/LexicallyScopedActionFilter:
 Lint/UnusedMethodArgument:
   Exclude:
     - "app/uploaders/avatar_uploader.rb"
+
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
