@@ -3,11 +3,9 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import "trix";
 import "@rails/actiontext";
+import "./custom/dark"
+import "./custom/tourguide"
+import * as ActiveStorage from "@rails/activestorage";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleDarkMode = document.querySelector("#toggle-dark-mode");
+ActiveStorage.start()
 
-  toggleDarkMode.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-  });
-});
