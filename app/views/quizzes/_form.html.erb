@@ -46,7 +46,7 @@
 
       <div class="my-5">
         <%= form.label :quiz_image, style: "display: block" , class: "font-bold"%>
-        <%= form.file_field :quiz_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+        <%= form.file_field :quiz_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
       </div>
 
       <div class="my-5">
@@ -59,13 +59,14 @@
 
       <div class="my-5">
         <%= form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-        <%= form.file_field :explanation_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+        <%= form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
       </div>
         <h1 class="text-3xl text-center font-bold mt-16 mb-3">選択肢の作成</h1>
         <div>※選択肢は2〜4つ作成できます。</div>
         <%# 選択肢 %>
-        
+
         <%= form.fields_for :choices do |choice_form| %>
+
           <div class="outline mt-10 p-10 rounded-md">
             <div class="my-5">
               <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
@@ -74,7 +75,7 @@
 
             <div class="my-5">
               <%= choice_form.label :choice_image, style: "display: block" , class: "font-bold"%>
-              <%= choice_form.file_field :choice_image, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+              <%= choice_form.file_field :choice_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
             </div>
 
             <div class="my-5">
@@ -89,7 +90,7 @@
 
             <div class="my-5">
               <%= choice_form.label :explanation_image, style: "display: block" , class: "font-bold"%>
-              <%= choice_form.file_field :explanation_image ,class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
+              <%= choice_form.file_field :explanation_image, multiple: true, direct_upload: true, class: "file-input file-input-bordered file-input-success file-input-sm w-full max-w-xs", accept: 'image/*', id: "item_photos_attributes_0_image" %>
             </div>
 
             <% if @quiz.persisted? %>

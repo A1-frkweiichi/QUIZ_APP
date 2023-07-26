@@ -85,6 +85,10 @@ group :test do
 
 end
 
+group :production do
+  gem "aws-sdk-s3", require: false
+end
+
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
 #環境変数の設定（openするべきではないものを入れるところ https://pikawaka.com/rails/dotenv-rails）
