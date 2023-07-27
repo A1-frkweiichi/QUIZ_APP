@@ -4,10 +4,10 @@
 
 
 <section class="text-gray-600 body-font w-full text-center items-center mb-24 mt-12">
-  <h1 class="sm:text-xl text-lg font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
-  <p class="text-gray-800 text-xl">クイズに答えてください</p>
+  <h1 class="text-4xl font-medium title-font mb-8 text-gray-800">クイズNo.<%= @quiz.id %></h1>
+  <h1 class="text-gray-800 text-4xl md:text-5xl max-w-4xl mx-auto"><%= @quiz.content %></h1>
   <div class="container px-0 md:px-5 py-4 mx-auto">
-    <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl" %>
+    <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl", style: "width: 400px; height: 300px;" %>
   </div>
   <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
@@ -26,19 +26,21 @@
       <% end %>
     </div>
   </div>
-
-<div class="flex flex-wrap justify-center lg:w-1/3 sm:mx-auto sm:mb-2 -mx-2">
-  <% if @quiz.user_id == current_user.id %>
-    <div class="w-full text-center mb-2">作成者メニュー</div>
-    <div class="py-2 px-2 w-full sm:w-1/2">
-      <%= link_to t("quizzes.actions.back"), quizzes_path, class: "block w-full text-center py-2 px-8 rounded bg-indigo-200 border border-indigo-400 hover:bg-indigo-100" %>
-    </div>
-    <div class="py-2 px-2 w-full sm:w-1/2">
-      <%= link_to t("quizzes.actions.edit"), edit_quiz_path(@quiz), class: "block w-full text-center py-2 px-8 rounded bg-indigo-200 border border-indigo-400 hover:bg-indigo-100" %>
-    </div>
-    <div class="py-2 px-2 w-full sm:w-1/2">
-      <%= link_to t("quizzes.actions.destroy"), @quiz, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "block w-full text-center py-2 px-8 rounded bg-orange-200 border border-orange-400 hover:bg-orange-100" %>
-    </div>
-  <% end %>
-</div>
 </section>
+
+  <div class="flex flex-wrap justify-center lg:w-1/3 sm:mx-auto sm:mb-2 -mx-2">
+    <% if @quiz.user_id == current_user.id %>
+      <div class="w-full text-center mb-2">作成者メニュー</div>
+      <div class="py-2 px-2 w-full sm:w-1/2">
+        <%= link_to t("quizzes.actions.back"), quizzes_path, class: "block w-full text-center py-2 px-8 rounded bg-indigo-200 border border-indigo-400 hover:bg-indigo-100" %>
+      </div>
+      <div class="py-2 px-2 w-full sm:w-1/2">
+        <%= link_to t("quizzes.actions.edit"), edit_quiz_path(@quiz), class: "block w-full text-center py-2 px-8 rounded bg-indigo-200 border border-indigo-400 hover:bg-indigo-100" %>
+      </div>
+      <div class="py-2 px-2 w-full sm:w-1/2">
+        <%= link_to t("quizzes.actions.destroy"), @quiz, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "block w-full text-center py-2 px-8 rounded bg-orange-200 border border-orange-400 hover:bg-orange-100" %>
+      </div>
+    <% end %>
+  </div>
+  </section>
+</div>
