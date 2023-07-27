@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # rubocop:disable Rails/HasManyOrHasOneDependent
   has_many :quizzes
+  has_many :answers
   # rubocop:enable Rails/HasManyOrHasOneDependent
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

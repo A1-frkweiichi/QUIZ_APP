@@ -46,6 +46,16 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
   end
 
+  def record_answer
+    @quiz = Quiz.find(params[:id])
+    @choice = Choice.find(params[:choice_id])
+    @user = current_user
+
+    Answer.create!(quiz: @quiz, choice: @choice, user: @user)
+
+    redirect_to explanation_path(@quiz, choice_id: @choice.id)
+  end
+
   private
 
   def set_quiz
