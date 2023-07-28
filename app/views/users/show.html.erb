@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
+<div class="body flex flex-col min-h-screen bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
   <div class="flex justify-center text-5xl font-bold my-5">
     <% if user_signed_in? && @user == current_user %>
       <h1>マイページ</h1>
@@ -36,15 +36,15 @@
               <%= link_to quiz_path(quiz.id) do %>
                 <div class="border border-gray-400 border-opacity-60 rounded-lg overflow-hidden shadow-lg">
                   <%= image_tag "ogp.png", class: "h-48 md:h-64 w-full object-contain object-center", alt:"photo" %>
-                  <p class="md:p-2 bg-slate-100"><%= quiz.title %><p>
-                  <p><%= quiz.category%></p>
-                  <p><%= quiz.level%></p>
+                  <p class="md:p-2 bg-slate-100 dark:text-black"><%= quiz.title %><p>
+                  <p class="dark:text-black"><%= quiz.category%></p>
+                  <p class="dark:text-black"><%= quiz.level%></p>
                 </div>
               <% end %>
             </div>
           <% end %>
         <% else %>
-          <p class="text-center">投稿はありません</p>
+          <p class="text-center dark:text-black">投稿はありません</p>
         <% end %>
       </div>
     </div>

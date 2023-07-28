@@ -1,4 +1,4 @@
-<header class="bg-white dark:bg-slate-800 px-6 py-3  dark:bg-gray-800 dark:text-white">
+<header class="bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
   <div class="navbar" id="one">
     <div class="navbar-start">
       <%=link_to  root_path, class: "btn btn-ghost flex text-xl " do%>
@@ -8,7 +8,7 @@
     <div class="navbar-end flex">
       <ul class="menu menu-horizontal p-0 mr-2">
         <li><%= link_to image_tag("google_login_button.png", class:"w-32 h-15"), user_google_oauth2_omniauth_authorize_path,  method: :post %></li>
-        <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, data: { turbo_method: :post} ,class: "mt-2"%></li>
+        <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, data: { turbo_method: :post}, class:"dark:hover:text-yellow-400 mt-2"%></li>
       </ul>
     </div>
     <div class="ml-auto">

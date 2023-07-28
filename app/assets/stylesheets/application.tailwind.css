@@ -4,6 +4,12 @@
 @import 'actiontext.css';
 @import 'coderay.css';
 
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 224px);  /* 50px (header) + 50px (footer) */
+}
+
 .developers{
   margin: 0;
   background-color: #f9f9f9;
