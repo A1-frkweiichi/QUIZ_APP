@@ -81,8 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: clklur31v00ih9tp5by2m0tuo
-  username: clklur31u00if9tp5c2en180q
+  database: clklzj36500iy9tp57x6ndw4i
+  username: clklzj36500iw9tp5e2mx7myz
   password: <%= ENV['KNOWLEDGETREEQUIZ_SECOND_DATABASE_PASSWORD'] %>
-  user_password: <%= ENV['POSTGRES_USER_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
