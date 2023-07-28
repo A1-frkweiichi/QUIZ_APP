@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: clk51nosk00gh9tp5cc1jgznu
-  username: clk51nosj00gf9tp55t864v4i
+  database: clklur31v00ih9tp5by2m0tuo
+  username: clklur31u00if9tp5c2en180q
   password: <%= ENV['KNOWLEDGETREEQUIZ_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
