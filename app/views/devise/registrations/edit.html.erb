@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
+<div class="body flex flex-col min-h-screen bg-white dark:bg-slate-800 py-3 dark:bg-gray-800 dark:text-white">
 
   <div class="h-96 flex justify-center items-center">
     <div class="text-center">
@@ -9,12 +9,12 @@
 
         <div class="field mb-4">
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"dark:text-black" %>
         </div>
 
         <div class="field mb-4">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autocomplete: "email" %>
+          <%= f.email_field :email, autocomplete: "email", class:"dark:text-black" %>
         </div>
 
         <div class="form-group mb-4">
