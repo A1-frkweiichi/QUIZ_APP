@@ -7,10 +7,10 @@
     </div>
     <div class="navbar-end flex">
       <ul class="menu menu-horizontal p-0 mr-2">
-        <li><%= link_to "クイズ一覧", quizzes_path %></li>
-        <li><%= link_to "ユーザー編集", edit_user_registration_path %></li>
-        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %></li>
+        <li><%= link_to "クイズ一覧", quizzes_path, class:"dark:hover:text-yellow-400" %></li>
+        <li><%= link_to "ユーザー編集", edit_user_registration_path, class:"dark:hover:text-yellow-400" %></li>
+        <li><%= link_to "マイページ", user_path(current_user.id), class:"dark:hover:text-yellow-400" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, class:"dark:hover:text-yellow-400", data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %></li>
         <% if current_user.provider %>
           <li><%= link_to '退会', user_registration_path, data: { turbo_method: :delete, turbo_confirm: "アカウントを削除してもよろしいですか？" } %></li>
         <% end %>
