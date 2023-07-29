@@ -1,32 +1,5 @@
 
 <div class="body flex flex-col min-h-screen bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
-  <div class="flex justify-center text-5xl font-bold my-5">
-    <% if user_signed_in? && @user == current_user %>
-      <h1>マイページ</h1>
-    <% else %>
-      <h1><%= @user.name %>さんのページ</h1>
-    <% end %>
-  </div>
-  <div class="flex justify-center">
-    <% if @user.avatar.present? %>
-      <%= image_tag @user.avatar.url, class: "mb-3 profile-img rounded-full", width: 100, height: 100 %>
-    <% else %>
-      <%= image_tag @user.avatar.default_url, class: "mb-3 profile-img rounded-full", width: 100, height: 100 %>
-    <% end %>
-  </div>
-  <p class="text-center text-lg font-semibold mb-2">
-    <%= @user.name %>さんの投稿数：<%= @user.quizzes.count %>件
-  </p>
-  <div class="flex justify-center">
-    <% if user_signed_in? && @user == current_user %>
-      <p class="mt-2">
-        <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn bg-gray-900 text-white" %>
-      </p>
-    <% end %>
-    <% if current_user.provider %>
-      <p class="mt-2"><%= link_to '退会', user_registration_path, data: { turbo_method: :delete, turbo_confirm: "アカウントを削除してもよろしいですか？" } ,class: "btn bg-red-500 text-white" %></p>
-    <% end %>
-  </div>
 
 <div class="flex justify-center text-5xl font-bold my-5">
   <% if user_signed_in? && @user == current_user %>
