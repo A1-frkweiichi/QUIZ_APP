@@ -26,9 +26,6 @@
         <p class="font-bold">画像</p>
         <%= choice.choice_image %>
 
-        <p class="font-bold">正解か</p>
-        <%= choice.is_correct %>
-
         <p class="font-bold">説明</p>
         <div class="code">
           <%= CodeRay.scan(choice.explanation.body.to_plain_text, :ruby).div.html_safe %>
