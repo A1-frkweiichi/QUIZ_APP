@@ -18,28 +18,14 @@
           <p class="answer text-2xl text-red-500">正解!</p>
         <% end %>
         <h1 class="text-5xl"><%= index + 1 %></h1>
-        <p class="font-bold">内容</p>
-        <div class="code">
-          <%= CodeRay.scan(choice.content.body.to_plain_text, :ruby).div.html_safe %>
-        </div>
+        <p class="font-bold">選択肢</p>
+        <%= choice.content %>
 
-        <p class="font-bold">画像</p>
-        <%= choice.choice_image %>
-
-        <p class="font-bold">説明</p>
-        <div class="code">
-          <%= CodeRay.scan(choice.explanation.body.to_plain_text, :ruby).div.html_safe %>
-        </div>
-
-        <p class="font-bold">説明の画像</p>
-        <%= choice.explanation_image %>
+        <p class="font-bold">解説</p>
+        <%= choice.explanation %>
       </div>
     <% end %>
 
-    <p class="font-bold">-解説-</p>
-  <div class="code">
-      <%= CodeRay.scan(@quiz.content.body.to_plain_text, :ruby).div.html_safe %>
-    </div>
     <div class="title w-8 mt-3 mx-auto">
       <%= link_to "https://twitter.com/share?url=#{ request.url }&text=クイズ#{@quiz.title}に答えました%0a#{@answer}でした%0a", title: 'Twitter', class: 'fab fa-twitter', target: '_blank' do %>
         <svg viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
