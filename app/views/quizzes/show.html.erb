@@ -10,18 +10,31 @@
       <%= image_tag "ogp.png", class:"w-11/12 md:w-2/3 mx-auto border-2 border-gray-700 rounded shadow-xl", style: "width: 400px; height: 300px;" %>
     </div>
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
+
       <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
         <% @quiz.choices.each do |choice| %>
           <div class="py-2 px-4 md:px-8 w-1/2">
             <div class="rounded flex h-full items-center">
               <%= link_to explanation_path(@quiz, choice_id: choice.id), method: :get,
               class:"h-full w-full p-4 text-center text-lg rounded-xl bg-green-200 border border-green-400 hover:bg-green-100" do %>
+
+      <% @quiz.choices.each do |choice| %>
+        <div class="py-2 px-4 md:px-8 w-1/2">
+          <div class="rounded flex h-full items-center">
+            <%= form_with url: record_answer_quiz_path(@quiz, choice_id: choice.id), method: :post, class: "h-full w-full" do %>
+              <button type="submit" class="h-full w-full p-4 text-center text-lg rounded-xl bg-green-200 border border-green-400 hover:bg-green-100">
+
                 <div class="code">
                   <%= CodeRay.scan(choice.content.body.to_plain_text, :ruby).div.html_safe %>
                 </div>
                 <%= image_tag "ogp.png", class:"w-1/2 mx-auto"%>
+
               <% end %>
             </div>
+
+              </button>
+            <% end %>
+
           </div>
         <% end %>
       </div>
