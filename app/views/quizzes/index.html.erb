@@ -38,7 +38,13 @@
                     </div>
                   <% end %>
                 <%= link_to quiz_path(quiz.id) do %>
-                  <%= image_tag "ogp.png", class: "h-48 md:h-64 w-full object-contain object-center", alt:"photo" %>
+                  <% if quiz.content.body.attachables.grep(ActiveStorage::Blob).present? %>
+                    <% quiz.content.body.attachables.grep(ActiveStorage::Blob).each do |attachable| %>
+                      <%= image_tag attachable, size:"300x200" , class: "h-48 md:h-64 w-full object-contain object-center" %>
+                    <% end %>
+                  <% else %>
+                    <%= image_tag "ogp.png", class: "h-48 md:h-64 w-full object-contain object-center", alt:"photo" %>
+                  <% end %>
                   <p class="md:p-2 bg-slate-100 text-black"><%= quiz.title %><p>
                   <p><%= quiz.category%></p>
                   <p><%= quiz.level%></p>

@@ -2,8 +2,18 @@
 
   <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
     <h5 class="text-1xl"><%= @quiz.title %></h5>
-    <h5 class="text-1xl"><%= @quiz.content %></h5>
-    <h1 class="text-5xl"><%= @quiz.explanation %></h1>
+    <% html_content = @quiz.content.body.to_s %>
+    <% doc = Nokogiri::HTML::DocumentFragment.parse(html_content) %>
+    <%= doc.text.strip %>
+    <% @quiz.content.body.attachables.grep(ActiveStorage::Blob).each do |attachable| %>
+      <%= image_tag attachable, size:"300x200" , class: "max-w-4xl mx-auto rounded-md" %>
+    <% end %>
+    <% html_content = @quiz.explanation.body.to_s %>
+    <% doc = Nokogiri::HTML::DocumentFragment.parse(html_content) %>
+    <%= doc.text.strip %>
+    <% @quiz.explanation.body.attachables.grep(ActiveStorage::Blob).each do |attachable| %>
+      <%= image_tag attachable, size:"300x200" , class: "max-w-4xl mx-auto rounded-md" %>
+    <% end %>
 
     <h1 class="sm:text-3xl text-2xl font-medium title-font py-12">結果</h1>
     <% selected_choice = @quiz.choices.find_by(id: params[:choice_id]) %>
@@ -24,10 +34,20 @@
           <% end %>
           <p><%= index + 1 %></p>
           <p class="font-bold">選択肢</p>
-          <%= choice.content %>
+          <% html_content = choice.content.body.to_s %>
+          <% doc = Nokogiri::HTML::DocumentFragment.parse(html_content) %>
+          <%= doc.text.strip %>
+          <% choice.content.body.attachables.grep(ActiveStorage::Blob).each do |attachable| %>
+            <%= image_tag attachable, size:"300x200" , class: "mx-auto rounded-md" %>
+          <% end %>
 
           <p class="font-bold">解説</p>
-          <%= choice.explanation %>
+          <% html_content = choice.explanation.body.to_s %>
+          <% doc = Nokogiri::HTML::DocumentFragment.parse(html_content) %>
+          <%= doc.text.strip %>
+          <% choice.explanation.body.attachables.grep(ActiveStorage::Blob).each do |attachable| %>
+            <%= image_tag attachable, size:"300x200" , class: "mx-auto rounded-md" %>
+          <% end %>
         </div>
       <% end %>
     </div>
