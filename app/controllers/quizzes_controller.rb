@@ -19,6 +19,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    puts params
     @quiz = current_user.quizzes.new(quiz_params)
     if @quiz.save
       redirect_to quiz_url(@quiz), notice: t(".success")
@@ -64,20 +65,21 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:title,
-                                 :content,
-                                 :quiz_image,
-                                 :explanation,
-                                 :explanation_image,
-                                 :category,
-                                 :level,
-                                 choices_attributes:
-                                                   [:id,
-                                                    :content,
-                                                    :choice_image,
-                                                    :is_correct,
-                                                    :explanation,
-                                                    :explanation_image,
-                                                    :_destroy])
+                                :content,
+                                :explanation,
+                                :category,
+                                :level,
+                                quiz_image: [],
+                                explanation_image: [],
+                                choices_attributes: [:id,
+                                                      :content,
+                                                      :is_correct,
+                                                      :explanation,
+                                                      :_destroy,
+                                                      choice_image: [],
+                                                      explanation_image: []
+                                                    ]
+                                )
   end
 
   def build_choices
