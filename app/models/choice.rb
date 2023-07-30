@@ -4,6 +4,7 @@ class Choice < ApplicationRecord
   has_rich_text :explanation
   has_many_attached :choice_image
   has_many_attached :explanation_image
+  has_many :answers, dependent: :destroy
   default_scope { order(:id) }
 
   validates :content, presence: true
