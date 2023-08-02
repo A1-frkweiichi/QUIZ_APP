@@ -38,22 +38,27 @@
 
       <div class="my-5">
         <h4 class="">
-          <div class="badge badge-ghost"><%= t('items.new.any') %></div>
+          <div class="badge badge-error"><%= t('items.new.required') %></div>
           <%= form.label :content, style: "display: block", class: "font-bold"%>
         </h4>
         <%= form.rich_text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
       </div>
 
+      <div class="field">
+        <%= form.label :quiz_image %>
+        <%= form.file_field :quiz_image %>
+      </div>
+
       <div class="my-5">
         <h4 class="">
-          <div class="badge badge-ghost"><%= t('items.new.any') %></div>
+          <div class="badge badge-error"><%= t('items.new.required') %></div>
           <%= form.label :explanation, style: "display: block" , class: "font-bold"%>
         </h4>
         <%= form.rich_text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
       </div>
 
         <h1 class="text-3xl text-center font-bold mt-16 mb-3">選択肢の作成</h1>
-        <div>※選択肢は2〜4つ作成できます。</div>
+        <div>※選択肢は2つ以上作成ください。</div>
         <div>※正解には1つ以上チェックを入れてください。</div>
         <%# 選択肢 %>
 

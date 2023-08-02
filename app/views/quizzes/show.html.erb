@@ -5,6 +5,11 @@
   <section class="body-font w-full text-center items-center">
     <h1 class="text-4xl font-medium title-font mb-8">クイズNo.<%= @quiz.id %></h1>
     <h1 class="text-4xl md:text-5xl max-w-4xl mx-auto"><%= @quiz.content %></h1>
+    <div class="flex justify-center">
+      <% if @quiz.quiz_image.present? %>
+        <%= image_tag @quiz.quiz_image.url, width: 500, height: 500 %>
+      <% end %>
+    </div>
 
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 mx-auto">
       <% @quiz.choices.each do |choice| %>
