@@ -45,8 +45,16 @@
                       <%= image_tag "ogp.png", width: 500, height: 500 %>
                     <% end %>
                     <p class="md:p-2 bg-slate-100 text-black"><%= quiz.title %><p>
-                    <p><%= quiz.category%></p>
-                    <p><%= quiz.level%></p>
+                    <p class="md:p-2 bg-slate-100 text-black"><%= quiz.category%></p>
+                    <p class="md:p-2 bg-slate-100 text-black"><%= quiz.level%></p>
+                  <% end %>
+                  <%= link_to user_path(quiz.user) do %>
+                    <div class="flex flex-col items-center">
+                      <% if quiz.user.avatar.present? %>
+                        <%= image_tag quiz.user.avatar.url, width: 50, height: 50 %>
+                      <% end %>
+                      <p><%= quiz.user.name %></p>
+                    </div>
                   <% end %>
                 </div>
               </div>
