@@ -14,7 +14,7 @@
     <%= image_tag @user.avatar.default_url, class: "mb-3 profile-img rounded-full", width: 100, height: 100 %>
   <% end %>
 </div>
-<p class="text-center text-lg font-semibold mb-2">
+<p class="text-center text-lg font-semibold my-8">
   <%= @user.name %>さんの<br>
   回答数: <%= @total_answers %><br>
   正解数: <%= @correct_answers %><br>
@@ -33,7 +33,7 @@
   <% end %>
 </div>
 
-  <div class="flex justify-center">
+  <div class="flex justify-center my-8">
     <div class="w-full md:w-1/2 lg:w-1/3">
       <div class="bg-white shadow-md rounded-lg p-4 mb-4">
         <% if @quizzes.present? %>
