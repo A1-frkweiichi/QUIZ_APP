@@ -1,5 +1,11 @@
 <div class="bg-white dark:bg-slate-800 px-6 py-3 dark:bg-gray-800 dark:text-white">
 
+  <div class="text-right mr-6">
+    <p>作成日時：<%= @quiz.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+    <% if @quiz.updated_at.present? %>
+      <p>最終更新日：<%= @quiz.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+    <% end %>
+  </div>
   <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
     <h5 class="text-1xl"><%= @quiz.title %></h5>
     <h5 class="text-1xl"><%= @quiz.content %></h5>

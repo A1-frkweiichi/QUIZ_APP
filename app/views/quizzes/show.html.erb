@@ -2,8 +2,14 @@
 
   <p style="color: green"><%= notice %></p>
 
-  <section class="body-font w-full text-center items-center">
-    <h1 class="text-4xl font-medium title-font mb-8">クイズNo.<%= @quiz.id %></h1>
+  <section class="body-font w-full text-center items-center my-6">
+    <div class="text-right mr-6">
+      <p>作成日時：<%= @quiz.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+      <% if @quiz.updated_at.present? %>
+        <p>最終更新日：<%= @quiz.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+      <% end %>
+    </div>
+    <h1 class="text-4xl font-medium title-font mb-8"><%= @quiz.title %></h1>
     <h1 class="text-4xl md:text-5xl max-w-4xl mx-auto"><%= @quiz.content %></h1>
     <div class="flex justify-center">
       <% if @quiz.quiz_image.present? %>
