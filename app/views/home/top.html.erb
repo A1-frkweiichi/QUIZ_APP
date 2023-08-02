@@ -3,44 +3,20 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <div class='container mx-auto'>
-    <div class='text-center text-xl md:text-3xl py-12 font-bold text-syuiro'>ナレッジツリークイズとは？</div>
+    <div class='text-center text-xl md:text-3xl pt-12 font-bold text-syuiro'>ナレッジツリークイズとは？</div>
+    <div class="flex justify-center pt-6"><%= image_tag 'ogp.png', class: 'w-1/2 self-center' %></div>
 
     <div class="flex flex-col items-stretch justify-center md:px-8 lg:px-16">
-      <div class='text-left text-sm md:text-xl w-1/2 self-center'>
-        エンジニア学習における知識を、クイズ形式で投稿＆回答して学べるサービス
+      <div class='text-center text-sm md:text-xl w-1/2 self-center px-4 pt-6'>
+        エンジニア学習における知識を、<br>クイズ形式で投稿＆回答して学べるサービス
+      </div>
+      <div class="flex justify-center pt-16"><%= image_tag 'learning_pyramid.jpg', class: 'w-1/2 self-center' %></div>
+      <div class='text-center text-sm md:text-xl w-1/2 self-center px-4 pt-6'>
+        実は他人に教えることが一番学習効果が高いと言われています。
       </div>
     </div>
-     <div class="flex flex-col items-stretch justify-center md:px-8 lg:px-16  shadow-lg p-4 w-1/2 mx-auto rounded-md bg-lime-100 my-4">
-      <div class='pr-10 text-sm md:text-xl self-center p-4'>
-        <div>
-          <h3 class="text-2xl font-bold text-center dark:text-gray-500">1.クイズをつくって、学んだことをアウトプットしよう！</h3>
-        </div>
-      </div>
-      <div class="flex justify-center">
-        <%= image_tag "quiz.jpg", size:"300x200" , class: "rounded-md"%>
-      </div>
-    </div>
-     <div class="flex flex-col items-stretch justify-center md:px-8 lg:px-16  shadow-lg p-4 w-1/2 mx-auto rounded-md bg-lime-100 my-4">
-      <div class='pr-10 text-sm md:text-xl self-center p-4'>
-        <div>
-          <h3 class="text-xl font-bold text-center dark:text-gray-500">2.クイズの解説ページで、<br>補足や関連知識が知れるよ！</h3>
-        </div>
-      </div>
-      <div class="flex justify-center">
-        <%= image_tag "teach.jpg", size:"300x200" , class: "rounded-md"%>
-      </div>
-    </div>
-    <div class="flex flex-col items-stretch justify-center md:px-8 lg:px-16  shadow-lg p-4 w-1/2 mx-auto rounded-md bg-lime-100 my-4">
-      <div class='pr-10 text-sm md:text-xl self-center p-4'>
-        <div>
-          <h3 class="text-2xl font-bold text-center dark:text-gray-500">みんなで知識の木を育てよう！</h3>
-        </div>
-      </div>
-      <div class="flex justify-center">
-        <%= image_tag "tree.jpg",  class: "rounded-md h-96" %>
-      </div>
-    </div>
-    <div class='font-bold text-center text-lg md:text-2xl pb-8 mt-10'>楽しく学ぼう✨</div>
+
+    <div class='font-bold text-center text-lg md:text-2xl pb-8 mt-16'>リモート学習でも、みんなで教え合いながら楽しく学ぼう🌳✨</div>
   </div>
 
   <% unless current_user %>
