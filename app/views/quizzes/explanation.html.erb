@@ -7,21 +7,21 @@
     <% end %>
   </div>
   <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-    <h5 class="text-1xl"><%= @quiz.title %></h5>
-    <h5 class="text-1xl"><%= @quiz.content %></h5>
+    <h5><%= @quiz.title %></h5>
+    <h5><%= @quiz.content %></h5>
     <div class="flex justify-center">
       <% if @quiz.quiz_image.present? %>
         <%= image_tag @quiz.quiz_image.url, width: 500, height: 500 %>
       <% end %>
     </div>
-    <h1 class="text-5xl"><%= @quiz.explanation %></h1>
+    <h1><%= @quiz.explanation %></h1>
     <div class="flex justify-center">
       <% if @quiz.explanation_image.present? %>
         <%= image_tag @quiz.explanation_image.url, width: 500, height: 500 %>
       <% end %>
     </div>
 
-    <h1 class="sm:text-3xl text-2xl font-medium title-font py-12">結果</h1>
+    <h1 class="font-medium title-font py-12">結果</h1>
     <% selected_choice = @quiz.choices.find_by(id: params[:choice_id]) %>
     <% if selected_choice && selected_choice.is_correct %>
       <p class="answer text-9xl text-red-500">正解!</p>
@@ -36,7 +36,7 @@
       <% @quiz.choices.each_with_index do |choice, index| %>
         <div class="w-full md:w-1/2 px-4 rounded-xl bg-green-200 border border-green-400">
           <% if choice.is_correct == true %>
-            <p class="answer text-2xl text-red-500">正解!</p>
+            <p class="answer text-red-500">正解!</p>
           <% end %>
           <p><%= index + 1 %></p>
           <p class="font-bold">選択肢</p>
