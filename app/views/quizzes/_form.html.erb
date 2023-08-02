@@ -15,7 +15,7 @@
 
     <div class="form">
       <div class="outline mt-10 p-10 rounded-md">
-        <div class="badge badge-error "><%= t('quizzes.form.required') %></div>
+        <div class="badge badge-error text-white"><%= t('quizzes.form.required') %></div>
 
         <div class="my-5">
           <%= form.label :category, style: "display: block", class: "font-bold"%>
@@ -62,9 +62,9 @@
           <div class="outline mt-10 p-10 rounded-md">
 
           <% if counter < 2 %>
-            <div class="badge badge-error "><%= t('quizzes.form.required') %></div>
+            <div class="badge badge-error text-white"><%= t('quizzes.form.required') %></div>
           <% else %>
-            <div class="badge badge-success "><%= t('quizzes.form.optional') %></div>
+            <div class="badge badge-success text-white"><%= t('quizzes.form.optional') %></div>
           <% end %>
           <% counter += 1 %>
 
@@ -102,6 +102,8 @@
           </div>
         <% end %>
     </div>
-    <%= form.submit  class: 'btn btn-success mt-4 mb-28' %>
+    <div class="flex justify-center space-x-4 py-4">
+      <%= form.submit  class: 'btn btn-success mt-4 mb-28 text-white' %>
+    </div>
   <% end %>
 </div>
