@@ -1,5 +1,6 @@
 <div class="container flex justify-center">
   <%= form_with(model: quiz) do |form| %>
+    <h1 class="text-3xl text-center font-bold mt-16 mb-3">クイズの作成</h1>
     <% if quiz.errors.any? %>
       <div style="color: red">
         <h2><%= pluralize(quiz.errors.count, t('quizzes.form.error')) %> <%= t('quizzes.form.prohibited') %></h2>
@@ -11,65 +12,71 @@
         </ul>
       </div>
     <% end %>
-    <div class="">
-      <div class="my-5">
-        <h4 class="">
-          <div class="badge badge-error "><%= t('items.new.required') %></div>
+
+    <div class="form">
+      <div class="outline mt-10 p-10 rounded-md">
+        <div class="badge badge-error "><%= t('quizzes.form.required') %></div>
+
+        <div class="my-5">
           <%= form.label :category, style: "display: block", class: "font-bold"%>
-        </h4>
           <%= form.select :category, ["HTML / CSS", "JavaScript", "Ruby", "Ruby on Rails", "RSpec", "PHP", "Laravel", "SQL", "AWS", "Docker", "Git / GitHub", "Web技術の基本（サーバ、ネットワーク、データベース等）", "プロダクト開発（初めてのポートフォリオ作り）"],class: "select select-bordered  select-success w-full max-w-xs" %>
-      </div>
+        </div>
 
-      <div class="my-5">
-        <h4 class="">
-          <div class="badge badge-error "><%= t('items.new.required') %></div>
+        <div class="my-5">
           <%= form.label :level, style: "display: block", class: "font-bold"%>
-        </h4>
           <%= form.select :level, ["入門", "基礎", "応用"],class: "select select-bordered  select-success w-full max-w-xs" %>
-      </div>
+        </div>
 
-      <div class="my-5">
-        <h4 class="">
-          <div class="badge badge-error "><%= t('items.new.required') %></div>
+        <div class="my-5">
           <%= form.label :title, style: "display: block", class: "font-bold"%>
-        </h4>
-        <%= form.text_field :title, class: "input input-bordered input-success input-sm w-full max-w-xs" %>
-      </div>
+          <%= form.text_field :title, class: "input input-bordered input-success input-sm w-full max-w-xs" %>
+        </div>
 
-      <div class="my-5">
-        <h4 class="">
-          <div class="badge badge-error"><%= t('items.new.required') %></div>
+        <div class="my-5">
           <%= form.label :content, style: "display: block", class: "font-bold"%>
-        </h4>
-        <%= form.rich_text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
-      </div>
+          <%= form.rich_text_area :content, rows:"10", class: "overflow-auto h-1/2" %>
+        </div>
 
-      <div class="field">
-        <%= form.label :quiz_image %>
-        <%= form.file_field :quiz_image %>
-      </div>
+        <div class="field">
+          <%= form.label :quiz_image %>
+          <%= form.file_field :quiz_image %>
+        </div>
 
-      <div class="my-5">
-        <h4 class="">
-          <div class="badge badge-error"><%= t('items.new.required') %></div>
+        <div class="my-5">
           <%= form.label :explanation, style: "display: block" , class: "font-bold"%>
-        </h4>
-        <%= form.rich_text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
+          <%= form.rich_text_area :explanation, rows:"10", class: "overflow-auto h-1/2" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :explanation_image %>
+          <%= form.file_field :explanation_image %>
+        </div>
       </div>
 
         <h1 class="text-3xl text-center font-bold mt-16 mb-3">選択肢の作成</h1>
-        <div>※選択肢は2つ以上作成ください。</div>
         <div>※正解には1つ以上チェックを入れてください。</div>
-        <%# 選択肢 %>
 
+        <% counter = 0 %>
         <%= form.fields_for :choices do |choice_form| %>
 
           <div class="outline mt-10 p-10 rounded-md">
+
+          <% if counter < 2 %>
+            <div class="badge badge-error "><%= t('quizzes.form.required') %></div>
+          <% else %>
+            <div class="badge badge-success "><%= t('quizzes.form.optional') %></div>
+          <% end %>
+          <% counter += 1 %>
+
             <div class="my-5">
               <%= choice_form.label :content, style: "display: block", class: "font-bold"%>
               <%= choice_form.rich_text_area :content,rows:"10", class: "overflow-auto h-1/2" %>
             </div>
 
+            <div class="field">
+              <%= choice_form.label :choice_image %>
+              <%= choice_form.file_field :choice_image %>
+            </div>
 
             <div class="my-5">
               <%= choice_form.label :is_correct, style: "display: block" , class: "font-bold"%>
@@ -79,6 +86,11 @@
             <div class="my-5">
               <%= choice_form.label :explanation, style: "display: block" , class: "font-bold"%>
               <%= choice_form.rich_text_area :explanation, class: "overflow-auto h-1/2" %>
+            </div>
+
+            <div class="field">
+              <%= choice_form.label :explanation_image %>
+              <%= choice_form.file_field :explanation_image %>
             </div>
 
             <% if @quiz.persisted? %>

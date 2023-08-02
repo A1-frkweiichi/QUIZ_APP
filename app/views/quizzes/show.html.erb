@@ -18,6 +18,9 @@
             <%= form_with url: record_answer_quiz_path(@quiz, choice_id: choice.id), method: :post, class: "h-full w-full" do %>
               <button type="submit" class="h-full w-full p-4 text-center text-lg rounded-xl bg-green-200 border border-green-400 hover:bg-green-100">
                 <%= choice.content %>
+                <% if choice.choice_image.present? %>
+                  <%= image_tag choice.choice_image.url, width: 500, height: 500 %>
+                <% end %>
               </button>
             <% end %>
           </div>

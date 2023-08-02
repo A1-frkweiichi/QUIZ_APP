@@ -28,6 +28,7 @@ Layout/LineLength:
     - "app/models/user.rb"
     - "app/uploaders/avatar_uploader.rb"
     - "app/uploaders/quiz_image_uploader.rb"
+    - "app/uploaders/choice_image_uploader.rb"
     - "app/helpers/application_helper.rb"
     - "app/controllers/users_controller.rb"
 
@@ -113,6 +114,7 @@ Lint/UnusedMethodArgument:
 Style/PercentLiteralDelimiters:
   Exclude:
     - "app/uploaders/quiz_image_uploader.rb"
+    - "app/uploaders/choice_image_uploader.rb"
 
 Rails/FilePath:
   Exclude:
