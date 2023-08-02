@@ -1,16 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'actiontext.css';
-@import 'coderay.css';
+@import "actiontext.css";
+@import "coderay.css";
 
 .body {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 224px);  /* 50px (header) + 50px (footer) */
+  min-height: calc(100vh - 224px); /* 50px (header) + 50px (footer) */
 }
 
-.developers{
+.developers {
   margin: 0;
   background-color: #f9f9f9;
   display: flex;
@@ -41,7 +41,6 @@
   box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-
 .entry p {
   text-align: center;
   padding: 1em;
@@ -60,7 +59,6 @@
   object-fit: cover;
   border: 2px white solid;
 }
-
 
 .entry .name {
   display: block;
