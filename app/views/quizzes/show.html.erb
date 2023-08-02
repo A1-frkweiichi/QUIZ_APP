@@ -4,9 +4,9 @@
 
   <section class="body-font w-full text-center items-center my-6">
     <div class="text-right mr-6">
-      <p>作成日時：<%= @quiz.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+      <p><%= t "quizzes.show.created_at" %><%= @quiz.created_at.strftime("%Y/%m/%d %H:%M") %></p>
       <% if @quiz.updated_at.present? %>
-        <p>最終更新日：<%= @quiz.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+        <p><%= t "quizzes.show.updated_at" %><%= @quiz.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
       <% end %>
     </div>
     <h1 class="text-4xl font-medium title-font mb-8"><%= @quiz.title %></h1>
