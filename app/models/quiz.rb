@@ -2,7 +2,7 @@ class Quiz < ApplicationRecord
   has_rich_text :content
   has_rich_text :explanation
   mount_uploader :quiz_image, QuizImageUploader
-  has_many_attached :explanation_image
+  mount_uploader :explanation_image, QuizImageUploader
   has_many :choices, dependent: :destroy
   belongs_to :user
 
